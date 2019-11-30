@@ -29,7 +29,7 @@ const route : Route[]=
 
   {path : 'user-register', component: UserRegisterComponent},
   {path: 'user-login', component: UserLoginComponent},
-  {path: 'user-list', component: UserListComponent},
+  {path: 'user-list', component: UserListComponent, canActivate:[UserService]},
 
   {path : 'parent-list', component: ParentListComponent, canActivate:[UserService]},
   {path : 'parent-add', component:ParentAddComponent, canActivate:[UserService]},
@@ -81,7 +81,8 @@ const route : Route[]=
         ParentService,
         FacultyService,
         FacultyListComponent,
-        ParentListComponent
+        ParentListComponent,
+        StudentListComponent
       ],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../student.service';
 import * as toastr from 'toastr'
 import { Router } from '@angular/router';
+import { StudentListComponent } from '../list/student.list.component';
 
 @Component({
     selector: 'app-student-add',
@@ -31,7 +32,7 @@ export class StudentAddComponent implements OnInit {
  
 
 
-    constructor(private service: StudentService, private router : Router)
+    constructor(private studentList :StudentListComponent, private service: StudentService, private router : Router)
     {
         
 
@@ -41,9 +42,9 @@ export class StudentAddComponent implements OnInit {
     {
         console.log(this.FirstName, this.LastName, this.RollNo, this.ParentID, this.Gender, this.Board, this.Address, this.BirthDate, this.Email, this.Class, this.Division, this.DiviosnID, this.ClassID, this.USerID);
         this.addStudent(this.FirstName, this.LastName, this.RollNo, this.ParentID, this.Gender, this.Board, this.Address, this.BirthDate, this.Email, this.Class, this.Division, this.DiviosnID, this.ClassID, this.USerID)
+        this.router.navigate(['/students-list'])
         
-        this.router.navigate(['/students-list']
-        )
+           
     }
     addStudent(FirstName: string, LastName: string, RollNo: string, ParentID: string, Gender: string, Board: string, Address: string, BirthDate:Date, Email: string, Class: string, Division: string, DiviosnID: string, ClassID: string, USerID: string) 
     {

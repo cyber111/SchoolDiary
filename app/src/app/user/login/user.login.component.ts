@@ -28,26 +28,11 @@ export class UserLoginComponent implements OnInit {
 
 
     onLogin() {
-
-        if (this.roll == 'Admin') {
-            sessionStorage['user_roll'] = 1
-            this.user_roll = sessionStorage['user_roll']
-            this.postAdmin(this.username, this.password)
-            console.log(sessionStorage['user_roll'])
-        }
-        if (this.roll == 'Customer') {
-            if (this.is_block == 0) {
-                //TO DO:
-                sessionStorage['user_roll'] = 0
-                this.user_roll = sessionStorage['user_roll']
-                console.log(sessionStorage['user_roll'])
-                this.postUser(this.username, this.password)
-            }
-            else {
-                toastr.error('User is block')
-            }
-        }
-
+        sessionStorage['user_roll'] = 1
+        localStorage['log_out_flag'] = '0'
+        this.user_roll = sessionStorage['user_roll']
+        this.postAdmin(this.username, this.password)
+        console.log(sessionStorage['user_roll'])    
     }
     postUser(username: string, password: string) {
         this.service.postUser(username, password)
@@ -83,10 +68,9 @@ export class UserLoginComponent implements OnInit {
             })
     }
 
-    getId()
-    {
+    getId() {
         this.service.getId(this.username)
-        .subscribe
+            .subscribe
     }
 
     ngOnInit() { }

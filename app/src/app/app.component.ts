@@ -13,14 +13,24 @@ export class AppComponent {
 
   constructor(private router: Router)
   {
+      
+  }
 
+  toRender()
+  {
+    if(localStorage['login_status'] == 1)
+      return true;
+    else
+      return false;  
   }
 
   onLogout()
   {
     if(localStorage['login_status'] == 1)
     {
+      
       localStorage.removeItem('login_status')
+      localStorage['log_out_flag'] = 1;
       this.router.navigate(['/home'])
       toastr.success(' Logged out ')
     }
@@ -28,10 +38,19 @@ export class AppComponent {
       toastr.error('Already Logged out ')
   }
 
+  isLogOut()
+  {
+    if(localStorage['log_out_flag'] == 1)
+    return true;
+  else  if(localStorage['log_out_flag'] == 0)
+    return false; 
+  }
+
   onLogin()
   {
     if(!localStorage['login_status'])
     {
+      
       this.router.navigate(['/user-login'])
     }
     else
