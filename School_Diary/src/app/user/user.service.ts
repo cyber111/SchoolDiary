@@ -1,0 +1,51 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+
+@Injectable({providedIn: 'root'})
+export class UserService implements CanActivate{
+
+    url = ' http://localhost:5000/user'
+    constructor(
+        private httpClient: HttpClient,
+        private router : Router)
+    {
+
+    }
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
+        
+        if(localStorage['login_status'])
+            return true
+            this.router.navigate(['/user-login'])
+            return false
+    } 
+    
+    getUsers()
+    {
+        return this.httpClient.get('url')
+    }
+
+    registerUser(username: string, password:string, email:string)
+    {
+        const body = 
+        {
+            username:username,
+            password : password,
+            email:email
+        }
+        console.log(body)
+
+        return this.httpClient.post(this.url+'/register', body)
+    }
+
+    //postUser = Register user
+    postUser(username: string, password: string) 
+    {
+        const body = 
+        {
+            username : username,
+            password :password
+        }
+        return this.httpClient.post(this.url + '/login', body)
+    } 
+}

@@ -1,0 +1,73 @@
+<div class="form container container-fluid">
+    <h1 style="text-align: center;">Add Parent</h1>
+
+
+<div class="rows">
+        <div   class="col-md-12">
+                <div class="form-group">
+                    <label>s_id</label>
+                    <input style="max-width: 8cm;" [(ngModel)]='s_id' type="text" class='form-control'>
+                </div>
+            </div>     
+</div>
+
+    <div class="rows">
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>First Name</label>
+                <input [(ngModel)]='pfirstname' type="text" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-6  ">
+            <div class="form-group">
+                <label>Last Name</label>
+                <input [(ngModel)]='plastname' type="text" class="form-control">
+            </div>
+        </div>
+    </div>
+
+    <div class="rows">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Mobile</label>
+                <input [(ngModel)]='pmobile' type="tel" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>E-mail</label>
+                <input [(ngModel)]='pemail' type="text" class="form-control">
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="rows">
+            <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input [(ngModel)]='paddress' type="text" class="form-control" style="max-width: 14cm;">
+                    </div>
+                </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>Relation With Student</label>
+                <input [(ngModel)]='prelation' type="text" class="form-control" style="max-width: 14cm;">
+            </div>
+        </div>
+
+
+    <div class="col-md-6">
+        <div class="rows">
+            <div>
+                <button (click)='onAdd()' class="btn btn-success">Add</button>
+                <button style="margin-left: 10px;" class="btn btn-danger">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

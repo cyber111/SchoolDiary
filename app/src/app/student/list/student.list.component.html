@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+        <h1 style="text-align:center;font-weight: bold;" >ADMIN</h1>
+        <hr>
+    <div class="container">
+        <!-- <div class="container">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/students-list">Students</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/parent-list">Parent</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/faculty-list">Faculty</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div> -->
+        <h1 style="text-align: center; ">Students</h1>
+            <li> <a routerLink="/students-list">Students</a></li>
+            <li> <a routerLink="/parent-list">Parent</a></li>
+            <li> <a routerLink="/faculty-list">Faculty</a></li>
+            <li> <a routerLink="/user-list">User</a></li>
+        <button routerLink='/students-add' style="margin-bottom: 10px" class="btn btn-primary pull-right AddButton">Add
+            Student</button>
+        <table class="table table-bordered table-hover">
+            <thead class="table-heads">
+                <th>Students Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Roll No.</th>
+                <th>Parent's ID</th>
+                <th>Gender</th>
+                <th>Board</th>
+                <th>Address</th>
+                <th>Birth Date</th>
+                <th>Email</th>
+                <th>Class</th>
+                <th>Division</th>
+                <th>Diviosn ID</th>
+                <th>Class ID</th>
+                <th>USer ID</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let student of students">
+                    <td>{{student.S_ID}}</td>
+                    <td>{{student.SFNAME}}</td>
+                    <td>{{student.SLNAME}}</td>
+                    <td>{{student.SROLLNO}}</td>
+                    <td>{{student.PID}}</td>
+                    <td>{{student.SGENDER}}</td>
+                    <td>{{student.SBOARD}}</td>
+                    <td>{{student.SADDRESS}}</td>
+                    <td>{{student.SBIRTHDATE}}</td>
+                    <td>{{student.SEMAIL}}</td>
+                    <td>{{student.SCLASS}}</td>
+                    <td>{{student.SDIVISION}}</td>
+                    <td>{{student.DID}}</td>
+                    <td>{{student.CID}}</td>
+                    <td>{{student.UID}}</td>
+
+                    <td>
+                        <!-- <button (click) = '' class="btn btn-warning glyphicon glyphicon-pencil"></button> -->
+                        <a routerLink="/students-edit/{{student.S_ID}}"
+                            class="btn btn-warning  glyphicon glyphicon-pencil"></a>
+                        <button (click)='onDelete(student.S_ID)' style="margin-top: 10px;"
+                            class="btn btn-danger glyphicon glyphicon-trash"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
