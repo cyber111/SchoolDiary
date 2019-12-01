@@ -57,21 +57,11 @@ export class UserLoginComponent implements OnInit {
                     }
                     else if(data['role'] == 'parent')
                     {
-                        this.router.navigate(['/client-home'])
-                        toastr.success('User Loged In')
-                        localStorage['login_status'] = '1'
+                    this.router.navigate(['/client-home'])
+                    toastr.success('User Loged In')
+                    localStorage['login_status'] = '1'
                     }
-
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-
+    
                 }
                 else {
                     toastr.error('User Not There')

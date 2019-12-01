@@ -77,6 +77,7 @@ router.post('/login', (request, response) => {
             const user = data[0]
             const info =
             {
+                id:user['UID'],
                 role: user['role'],
                 username: user['USERNAME'],
                 email: user['EMAIL']

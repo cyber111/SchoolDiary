@@ -24,6 +24,14 @@ export class AppComponent {
       return false;  
   }
 
+  toRenderOne()
+  {
+    if(localStorage['isLogo'] == 1)
+      return true;
+    else
+      return false;  
+  }
+
   onLogout()
   {
     if(localStorage['login_status'] == 1)
@@ -40,6 +48,7 @@ export class AppComponent {
 
   isLogOut()
   {
+    localStorage['islogo'] = 0;
     if(localStorage['log_out_flag'] == 1)
     return true;
   else  if(localStorage['log_out_flag'] == 0)
@@ -50,7 +59,7 @@ export class AppComponent {
   {
     if(!localStorage['login_status'])
     {
-      
+      localStorage['islogo'] = 1;
       this.router.navigate(['/user-login'])
     }
     else
