@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StudentService } from '../student.service';
+import { Router } from "@angular/router";
 import * as toastr from 'toastr' 
 @Component({
     selector: 'app-student-edit',
@@ -26,7 +27,7 @@ export class StudentEditComponent implements OnInit {
     ClassID : null
     USerID : null
 
-    constructor(private activateRoute: ActivatedRoute, private service : StudentService) 
+    constructor(private router:Router,private activateRoute: ActivatedRoute, private service : StudentService) 
     {
         const id = this.activateRoute.snapshot.params['S_ID']
         //console.log(id);
@@ -79,6 +80,7 @@ export class StudentEditComponent implements OnInit {
                     toastr.error('ErrorErrorError')
                 }
             })
+            this.router.navigate(['/students-list'])
      }
 
  
