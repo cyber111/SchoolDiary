@@ -51,6 +51,18 @@ router.get('/ID/:username', (request, response) => {
     })
 })
 
+//getting roll
+router.get('/:ID', (request, response) => {
+
+    const conn = db.connect()
+    const id = request.params.id
+    const statement = `SELECT role FROM user where USERNAME = '${id}'`
+    conn.query(statement, (error, data) => {
+        conn.end()
+        response.send(utils.createResult(error, data))
+    })
+})
+
 router.post('/login', (request, response) => {
     const conn = db.connect()
     const { password, username } = request.body
@@ -65,6 +77,7 @@ router.post('/login', (request, response) => {
             const user = data[0]
             const info =
             {
+                role: user['role'],
                 username: user['USERNAME'],
                 email: user['EMAIL']
             }

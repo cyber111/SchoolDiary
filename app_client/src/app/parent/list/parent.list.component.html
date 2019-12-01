@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <div>
+            <h1 style="text-align:center;font-weight: bold;" >ADMIN</h1>
+            <hr>
+        <div class="container">
+            <!-- <nav class="navbar navbar-inverse">
+                        <div class="container-fluid">
+                            <div class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/students-list">Students</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/parent-list">Parent</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/faculty-list">Faculty</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav> -->
+            <!-- <h1 style="text-align: center; ">Parents</h1>
+            <li> <a routerLink="/students-list">Students</a></li>
+            <li> <a routerLink="/parent-list">Parent</a></li>
+            <li> <a routerLink="/faculty-list">Faculty</a></li>
+            <li> <a routerLink="/user-list">User</a></li> -->
+            <h1 style="text-align: center; ">Parents</h1>
+            <button routerLink='/parent-add' style="margin-bottom: 10px"
+                class="btn btn-primary pull-right AddButton">Add
+                Parent</button>
+            <table class="table table-bordered table-hover">
+                <thead class="table-heads">
+                    <th>Parent ID</th>
+                    <th>s_id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Relation</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let parent of parents">
+                        <td>{{parent.PID}}</td>
+                        <td>{{parent.S_ID}}</td>
+                        <td>{{parent.PFIRSTNAME}}</td>
+                        <td>{{parent.PLASTNAME}}</td>
+                        <td>{{parent.PMOBILE}}</td>
+                        <td>{{parent.PEMAIL}}</td>
+                        <td>{{parent.PADDRESS}}</td>
+                        <td>{{parent.PRELATION}} </td>
+                        <td>
+                            <button class="btn btn-warning glyphicon glyphicon-pencil"></button>
+                            <button (click)='onDelete(parent.PID)' style="margin-left: 10px;"
+                                class="btn btn-danger glyphicon glyphicon-trash"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

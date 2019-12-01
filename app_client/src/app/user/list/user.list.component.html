@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <div>
+            <h1 style="text-align:center;font-weight: bold;" >ADMIN</h1>
+            <hr>
+        <div class="container">
+            <!-- <nav class="navbar navbar-inverse">
+                        <div class="container-fluid">
+                            <div class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/students-list">Students</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/parent-list">Parent</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/faculty-list">Faculty</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav> -->
+            <h1 style="text-align: center; ">User</h1>
+
+
+            <button routerLink='/user-register' style="margin-bottom: 10px"
+                class="btn btn-primary pull-right AddButton">Add
+                User</button>
+            <table class="table table-bordered table-hover">
+                <thead class="table-heads">
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let user of users">
+                        <td>{{user.USERNAME}}</td>
+                        <td>{{user.EMAIL}}</td>
+                        <!-- <td>{{user.UID}}</td> -->
+
+
+                        <td>
+                            <button class="btn btn-warning glyphicon glyphicon-pencil"></button>
+                            <button (click)='onDelete()' style="margin-left: 10px;"
+                                class="btn btn-danger glyphicon glyphicon-trash"></button>
+                                <button (click) = 'onBlock(user.UID)' style="margin-left: 10px;"  class="btn btn-success">Block</button>
+                                <button (click) = 'onUnBlock(user.UID)' style="margin-left: 10px;"  class="btn btn-primary">Unblock</button>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
