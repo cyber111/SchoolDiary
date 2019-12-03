@@ -25,7 +25,7 @@ export class StudentService {
         ParentID: string, Gender: string, 
         Board: string, Address: string, BirthDate:Date, 
         Email: string, Class: string, Division: string, 
-        DiviosnID: string, ClassID: string, USerID: string
+        DiviosnID: string, ClassID: string, USerID: string, UserName: string, Password: string
         )
     {
         const body =
@@ -43,7 +43,9 @@ export class StudentService {
             Division :Division,
             DiviosnID :DiviosnID,
             ClassID :ClassID,
-            USerID :USerID
+            USerID :USerID,
+            UserName:UserName,
+            Password:Password
          }
         return this.http.post(this.url, body)
     }

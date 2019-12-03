@@ -43,11 +43,15 @@ export class UserLoginComponent implements OnInit {
                 if (response['status'] == 'success') {
                     
                     const data = response['data']
+                    localStorage['student_uid'] = data['id']
+                    console.log(localStorage['student_uid']);
+                    
                     if(data['role'] == 'student')
                     {
                         this.router.navigate(['/client-home'])
                         toastr.success('User Loged In')
                         localStorage['login_status'] = '1'
+                        // localStorage['student_uid'] = data['uid']
                     }
                     else if(data['role'] == 'teacher')
                     {

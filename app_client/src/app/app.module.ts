@@ -20,13 +20,16 @@ import { FacultyAddComponent } from './faculty/add/faculty.add.component';
 import { StudentEditComponent } from './student/edit/edit.student.component';
 import { ClientHomeComponent } from './client/client.home.component';
 import { UserListComponent } from './user/list/user.list.component';
+import { StuedentHomeComponent } from './student/home/add/student.from.component';
+import { StudentProfileComponent } from './student-home/profile/student.profile.component';
 
 const route : Route[]=
 [
   {path : 'students-list', component: StudentListComponent, canActivate:[UserService]},
   {path : 'students-add', component: StudentAddComponent, canActivate:[UserService]},
   {path : 'students-edit/:S_ID', component: StudentEditComponent, canActivate:[UserService]},
-
+  {path: 'students-profile', component:StudentProfileComponent, canActivate:[UserService]},
+  
   {path : 'user-register', component: UserRegisterComponent},
   {path: 'user-login', component: UserLoginComponent},
   {path: 'user-list', component: UserListComponent, canActivate:[UserService]},
@@ -39,9 +42,8 @@ const route : Route[]=
   {path: 'client-home', component:ClientHomeComponent},
   
   {path: 'faculty-list', component:FacultyListComponent, canActivate:[UserService]},
-  {path: 'faculty-add', component:FacultyAddComponent, canActivate:[UserService]}
-
-
+  {path: 'faculty-add', component:FacultyAddComponent, canActivate:[UserService]},
+  
 ]
 
 
@@ -54,6 +56,8 @@ const route : Route[]=
     StudentListComponent,
     StudentAddComponent,
     StudentEditComponent,
+    StuedentHomeComponent,
+    StudentProfileComponent,
 
     
     UserLoginComponent,

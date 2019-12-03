@@ -15,6 +15,8 @@ export class StudentService {
         return this.http.get(this.url)
     }
 
+
+
     getstudent(id : number)
     {
         return this.http.get(this.url +'/'+ id)
@@ -47,11 +49,7 @@ export class StudentService {
          }
         return this.http.post(this.url, body)
     }
-    deleteStudent(id: number)
-    {
-        return this.http.delete(this.url + '/' + id)
-    }
-
+ 
     updateStudent(S_ID:number,
         FirstName: string, LastName: string, RollNo: string, 
         ParentID: string, Gender: string, 

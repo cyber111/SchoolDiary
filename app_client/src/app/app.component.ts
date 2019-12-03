@@ -11,61 +11,31 @@ export class AppComponent {
   title = 'app';
 
 
-  constructor(private router: Router)
-  {
-      
+  constructor(private router: Router) {
+
   }
 
-  toRender()
-  {
-    if(localStorage['login_status'] == 1)
+  toRender() {
+    if (localStorage['login_status'] == 1)
       return true;
     else
-      return false;  
+      return false;
   }
 
-  toRenderOne()
-  {
-    if(localStorage['isLogo'] == 1)
+  toRenderOne() {
+    if (localStorage['isLogo'] == 1)
       return true;
     else
-      return false;  
+      return false;
   }
 
-  onLogout()
-  {
-    if(localStorage['login_status'] == 1)
-    {
-      
-      localStorage.removeItem('login_status')
-      localStorage['log_out_flag'] = 1;
-      this.router.navigate(['/home'])
-      toastr.success(' Logged out ')
-    }
-    else
-      toastr.error('Already Logged out ')
+  onLogout() {
+    localStorage.clear()
+    this.router.navigate(['/home'])
+    toastr.success(' Logged out ')
   }
 
-  isLogOut()
-  {
-    localStorage['islogo'] = 0;
-    if(localStorage['log_out_flag'] == 1)
-    return true;
-  else  if(localStorage['log_out_flag'] == 0)
-    return false; 
-  }
-
-  onLogin()
-  {
-    if(!localStorage['login_status'])
-    {
-      localStorage['islogo'] = 1;
-      this.router.navigate(['/user-login'])
-    }
-    else
-    {
-      toastr.error('Already Logged in')
-
-    }
+  onLogin() {
+    this.router.navigate(['/user-login'])
   }
 }

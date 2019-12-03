@@ -36,22 +36,7 @@ export class StudentListComponent implements OnInit {
         })
     }
 
-    onDelete(id : number)
-    {
-        this.service.deleteStudent(id)
-        .subscribe(response => {
-            if(response['status'] == 'success')
-            {
-                toastr.success('Data Deleted')
-                this.showList()
-            }
-            else
-            {
-                console.log(response['error'])
-                toastr.error('ErrorErrorError')
-            }
-        })
-    }
+
 
     ngOnInit() { }
 }

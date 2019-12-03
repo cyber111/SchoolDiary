@@ -27,6 +27,8 @@ export class StudentAddComponent implements OnInit {
     DiviosnID : null
     ClassID : null
     USerID : null
+    UserName:''
+    Password:''
         
 
  
@@ -41,12 +43,12 @@ export class StudentAddComponent implements OnInit {
     onAdd()
     {
         console.log(this.FirstName, this.LastName, this.RollNo, this.ParentID, this.Gender, this.Board, this.Address, this.BirthDate, this.Email, this.Class, this.Division, this.DiviosnID, this.ClassID, this.USerID);
-        this.addStudent(this.FirstName, this.LastName, this.RollNo, this.ParentID, this.Gender, this.Board, this.Address, this.BirthDate, this.Email, this.Class, this.Division, this.DiviosnID, this.ClassID, this.USerID)
+        this.addStudent(this.FirstName, this.LastName, this.RollNo, this.ParentID, this.Gender, this.Board, this.Address, this.BirthDate, this.Email, this.Class, this.Division, this.DiviosnID, this.ClassID, this.USerID, this.UserName, this.Password)
         this.router.navigate(['/students-list'])
         
            
     }
-    addStudent(FirstName: string, LastName: string, RollNo: string, ParentID: string, Gender: string, Board: string, Address: string, BirthDate:Date, Email: string, Class: string, Division: string, DiviosnID: string, ClassID: string, USerID: string) 
+    addStudent(FirstName: string, LastName: string, RollNo: string, ParentID: string, Gender: string, Board: string, Address: string, BirthDate:Date, Email: string, Class: string, Division: string, DiviosnID: string, ClassID: string, USerID: string, UserName: string, Password:string) 
     {
         this.service.addStudent
         (
@@ -54,7 +56,7 @@ export class StudentAddComponent implements OnInit {
             ParentID, Gender, Board, 
             Address, BirthDate, Email, 
             Class, Division, DiviosnID, 
-            ClassID, USerID
+            ClassID, USerID, UserName, Password
         )
         .subscribe(response =>
         {

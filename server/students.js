@@ -15,11 +15,12 @@ router.get('/', (request, responce) => {
     })
 })
 
+//getting student according to the user id
 router.get('/:id', (request, responce) => {
 
     const id = request.params.id
     const conn = db.connect()
-    const statement = `SELECT * FROM student WHERE S_ID = ${id}`
+    const statement = `SELECT * FROM student WHERE UID = ${id}`
 
     conn.query(statement, (error, data) => {
         conn.end()
@@ -35,7 +36,7 @@ router.post('/', (request, responce) => {
         FirstName, LastName, RollNo, 
         ParentID, Gender, Board, Address, 
         BirthDate, Email, Class, Division,
-        DiviosnID, ClassID
+        DiviosnID, ClassID, USerID, UserName, Password 
     } = request.body
     
     console.log(BirthDate);
@@ -47,14 +48,15 @@ router.post('/', (request, responce) => {
                         SFNAME ,SLNAME,SROLLNO
                         ,PID , SGENDER,SBOARD , SADDRESS,
                         SBIRTHDATE ,SEMAIL ,SCLASS ,
-                        SDIVISION, DID, CID
+                        SDIVISION, DID, CID, UID, USERNAME, PASSWORD
                         )
                     VALUES
                         (
                         '${FirstName}', '${LastName}', '${RollNo}',
                         '${ParentID}', '${Gender}', '${Board}',
                         '${Address}','${BirthDate}' ,'${Email}', '${Class}',
-                        '${Division}', '${DiviosnID}', '${ClassID}'
+                        '${Division}', '${DiviosnID}', '${ClassID}', '${USerID}',
+                        '${UserName}', '${Password}'
                         )
 
                         `

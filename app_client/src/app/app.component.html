@@ -13,9 +13,10 @@
                 <a class="navbar-brand" style="font-weight: bold; font-size: 15dp;" [routerLink]="['/home']" routerLinkActive="router-link-active" href="#">SCHOOL DIARY</a>
             </div>
             <div class="collapse navbar-collapse">
+                
                 <div *ngIf="toRender()">
                         <ul class="nav navbar-nav">
-                                <li> <a routerLink="/home">Profile</a></li>
+                                <li> <a routerLink="/students-profile">Profile</a></li>
                             </ul>
                             <ul class="nav navbar-nav">
                                 <li> <a routerLink="/home">Dashboard</a></li>
@@ -24,8 +25,12 @@
                                 <li> <a routerLink="/home">Tests</a></li>
                             </ul>
                             <ul class="nav navbar-nav">
+                                <li> <a routerLink="/home">Subjects</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav">
                                 <li> <a routerLink="/home">Feedback</a></li>
                             </ul>
+                            
                 </div>
 
                 <ul *ngIf="!toRender()" class="nav navbar-nav pull-right">
@@ -37,14 +42,11 @@
             </div>
         </div>
     </nav>
+    <router-outlet></router-outlet>  
+ 
 
-
-
-   
-        
-    
 </body>
-<router-outlet></router-outlet>
+
 
 </html>
 

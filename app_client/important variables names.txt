@@ -1,0 +1,142 @@
+
+
+
+EMAIL
+USERNAME
+PASSWORD
+UID
+is_block
+role
+
+
+PID
+S_ID
+PFIRSTNAME
+PLASTNAME
+PMOBILE
+PEMAIL
+PADDRESS
+PRELATION
+
+
+S_ID
+SFNAME
+SLNAME
+SROLLNO
+PID
+SGENDER
+SBOARD
+SADDRESS
+SBIRTHDATE
+SEMAIL
+SCLASS
+SDIVISION
+DID
+CID
+UID
+USERNAME
+PASSWORD
+
+
+FID
+FFIRSTNAME
+FLASTNAME
+FMOBILE
+FADDRESS
+FGENDER
+FSUBJECTSPECILITY
+CID
+
+
+
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| CID    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| CGRADE | varchar(50) | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> desc division;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| DID   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| DNAME | varchar(50) | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> desc faculty;
++-------------------+-------------+------+-----+---------+----------------+
+| Field             | Type        | Null | Key | Default | Extra          |
++-------------------+-------------+------+-----+---------+----------------+
+| FID               | int(11)     | NO   | PRI | NULL    | auto_increment |
+| FFIRSTNAME        | varchar(50) | YES  |     | NULL    |                |
+| FLASTNAME         | varchar(50) | YES  |     | NULL    |                |
+| FMOBILE           | bigint(20)  | YES  |     | NULL    |                |
+| FADDRESS          | varchar(50) | YES  |     | NULL    |                |
+| FGENDER           | varchar(50) | YES  |     | NULL    |                |
+| FSUBJECTSPECILITY | varchar(50) | YES  |     | NULL    |                |
+| CID               | int(11)     | YES  | MUL | NULL    |                |
++-------------------+-------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+
+mysql> desc parent;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| PID        | int(11)     | NO   | PRI | NULL    | auto_increment |
+| S_ID       | int(11)     | YES  | MUL | NULL    |                |
+| PFIRSTNAME | varchar(50) | YES  |     | NULL    |                |
+| PLASTNAME  | varchar(50) | YES  |     | NULL    |                |
+| PMOBILE    | bigint(20)  | YES  |     | NULL    |                |
+| PEMAIL     | varchar(50) | YES  |     | NULL    |                |
+| PADDRESS   | varchar(50) | YES  |     | NULL    |                |
+| PRELATION  | varchar(50) | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+8 rows in set (0.01 sec)
+
+mysql> desc student;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| S_ID       | int(11)      | NO   | PRI | NULL    | auto_increment |
+| SFNAME     | varchar(50)  | YES  |     | NULL    |                |
+| SLNAME     | varchar(50)  | YES  |     | NULL    |                |
+| SROLLNO    | int(11)      | YES  |     | NULL    |                |
+| PID        | int(50)      | YES  | MUL | NULL    |                |
+| SGENDER    | varchar(50)  | YES  |     | NULL    |                |
+| SBOARD     | varchar(50)  | YES  |     | NULL    |                |
+| SADDRESS   | varchar(50)  | YES  |     | NULL    |                |
+| SBIRTHDATE | date         | YES  |     | NULL    |                |
+| SEMAIL     | varchar(50)  | YES  |     | NULL    |                |
+| SCLASS     | varchar(50)  | YES  |     | NULL    |                |
+| SDIVISION  | varchar(50)  | YES  |     | NULL    |                |
+| DID        | int(11)      | YES  | MUL | NULL    |                |
+| CID        | int(11)      | YES  | MUL | NULL    |                |
+| UID        | int(11)      | YES  | MUL | NULL    |                |
+| USERNAME   | varchar(500) | YES  |     | NULL    |                |
+| PASSWORD   | varchar(500) | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+17 rows in set (0.00 sec)
+
+mysql> desc user; 
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| EMAIL    | varchar(50) | YES  |     | NULL    |                |
+| USERNAME | varchar(50) | YES  |     | NULL    |                |
+| PASSWORD | varchar(50) | YES  |     | NULL    |                |
+| UID      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| is_block | tinyint(1)  | YES  |     | NULL    |                |
+| role     | varchar(50) | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+6 rows in set (0.01 sec)
+
+mysql> desc organization;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| OID   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| ONAME | varchar(50) | YES  |     | NULL    |                |
++-------+-------------+------+-----+---------+----------------+

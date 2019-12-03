@@ -325,5 +325,98 @@ UPDATE user SET role = "student" where UID=20;
 UPDATE user SET role = "student" where UID=22;
 UPDATE user SET role = "student" where UID=21;
 
+ALTER TABLE student
+DROP FOREIGN KEY FK_UID;
+ALTER TABLE student
+    ADD FK_UID FOREIGN KEY (UID)
+    REFERENCES user (UID)
+    ON UPDATE CASCADE;
+
+    ALTER TABLE 
+    student ADD 
+    CONSTRAINT 
+    FK_UID FOREIGN KEY (UID) 
+    REFERENCES user (UID)
+    ON UPDATE CASCADE;
 
 
+
+    INSERT INTO student
+  (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID)
+VALUES
+  ('PRATIK', 'JAIN', 46, 1, 'MALE', 'MH', 'PUNE', '1997-01-15', 'pratikl17@gmail,com', 'DMC', 'CDAC','23');
+
+
+  ALTER TABLE 
+  student ADD USERNAME VARCHAR(500);
+  ALTER TABLE 
+  student ADD PASSWORD VARCHAR(500);
+
+  TRUNCATE TABLE student;
+
+
+
+
+
+
+  INSERT INTO student
+  (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
+VALUES
+  ('PRATIK', 'JAIN', 44, 1, 'MALE', 'MH', 'PUNE', '1997-09-15', 'pjpratikjin7@gmail,com', 'DMC', 'CDAC', '1','pratik','123');
+
+  
+INSERT INTO student
+  (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
+VALUES
+  ('PRASAD', 'DESHMUKH', 45, 1, 'MALE', 'MH', 'PUNE', '1997-07-11', 'pjprasaddeshmukh17@gmail,com', 'DMC', 'CDAC', '2','prasad','123');
+
+  
+INSERT INTO student
+  (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
+VALUES
+  ('PRASHANT', 'JAIN', 46, 1, 'MALE', 'MH', 'PUNE', '1997-01-15', 'pratikl17@gmail,com', 'DMC', 'CDAC', '3','prashant','123');
+
+
+INSERT INTO student
+  (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
+VALUES
+  ('PRATIK', 'LAVHANE', 47, 1, 'FEMALE', 'MH', 'PUNE', '1997-05-06', 'neeta@gmail,com', 'DMC', 'CDAC', '4','pratik1','123');
+
+
+INSERT INTO student
+  (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
+VALUES
+  ('PRANAV', 'JOSHI', 48, 1, 'MALE', 'MH', 'PUNE', '1997-01-04', 'rudra@gmail,com', 'DMC', 'CDAC', '5','pranav','123');
+
+
+INSERT INTO student
+  (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
+VALUES
+  ('SHRIPAD', 'JOSHI', 49, 1, 'FEMALE', 'MH', 'PUNE', '1997-01-11', 'vaishnavi@gmail,com', 'DMC', 'CDAC', '6','shripad','123');
+
+
+INSERT INTO student
+  (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
+VALUES
+  ('AKASH', 'PATIL', 50, 1, 'FEMALE', 'MH', 'PUNE', '1997-11-02', 'chaitali@gmail,com', 'DMC', 'CDAC', '7','akash','123');
+
+
+INSERT INTO student
+  (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
+VALUES
+  ('CHAITALI', 'POTODE', 51, 1, 'MALE', 'MH', 'PUNE', '1997-12-31', 'mukul@gmail,com', 'DMC', 'CDAC', '8','chaitali','123');
+
+
+
+
+INSERT INTO user (EMAIL, USERNAME, PASSWORD, is_block, role) VALUES ('pratik@gmail.com','pratik','123', '0', 'student');
+INSERT INTO user (EMAIL, USERNAME, PASSWORD, is_block, role) VALUES ('prasad@gmail.com','prasad','123', '0', 'student');
+INSERT INTO user (EMAIL, USERNAME, PASSWORD, is_block, role) VALUES ('prashant@gmail.com','prashant','123', '0', 'student');
+INSERT INTO user (EMAIL, USERNAME, PASSWORD, is_block, role) VALUES ('pratik.1@gmail.com','pratik1','123', '0', 'student');
+INSERT INTO user (EMAIL, USERNAME, PASSWORD, is_block, role) VALUES ('pranav@gmail.com','pranav','123', '0', 'student');
+INSERT INTO user (EMAIL, USERNAME, PASSWORD, is_block, role) VALUES ('shripad@gmail.com','shripad','123', '0', 'student');
+INSERT INTO user (EMAIL, USERNAME, PASSWORD, is_block, role) VALUES ('akash@gmail.com','akash','123', '0', 'student');
+INSERT INTO user (EMAIL, USERNAME, PASSWORD, is_block, role) VALUES ('chaitali@gmail.com','chaitali','123', '0', 'student');
+
+
+ TRUNCATE TABLE user;
