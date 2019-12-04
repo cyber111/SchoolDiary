@@ -16,6 +16,40 @@ router.get('/', (request, responce) => {
 })
 
 
+router.get('/:uid', (request, responce) => {
+    const {uid} = request.params
+    const conn = db.connect()
+    const statement = `SELECT * FROM faculty WHERE UID = ${uid}`
+
+    conn.query(statement, (error, data) => {
+        conn.end()
+        responce.send(utils.createResult(error, data))  
+    })
+})
+
+router.get('/notice', (request, responce) => {
+    
+    const conn = db.connect()
+    const statement = `SELECT * FROM notice`
+
+    conn.query(statement, (error, data) => {
+        conn.end()
+        responce.send(utils.createResult(error, data))  
+    })
+})
+
+router.post('/notice', (request, responce) => {
+    
+    const conn = db.connect()
+    const {notice_text} = responce.body
+    const statement = `insert into notice (notice_text) values ('${text}')`
+
+    conn.query(statement, (error, data) => {
+        conn.end()
+        responce.send(utils.createResult(error, data))  
+    })
+})
+
 router.post('/', (request, responce) => {
 
     console.log("post faculty")

@@ -277,15 +277,23 @@ VALUES
   );
 
 
-  ALTER TABLE student
+ALTER TABLE student
 DROP FOREIGN KEY FK_PID;
 
 
-INSERT INTO user (EMAIL, USERNAME, PASSWORD) VALUES ('test1@test.com','test1','test1');
+INSERT INTO user
+  (EMAIL, USERNAME, PASSWORD)
+VALUES
+  ('test1@test.com', 'test1', 'test1');
 
 
-CREATE TABLE admin (USERNAME VARCHAR(50), PASSWORD VARCHAR(500));
-INSERT INTO admin VALUES('admin', 'admin');
+CREATE TABLE admin
+(
+  USERNAME VARCHAR(50),
+  PASSWORD VARCHAR(500)
+);
+INSERT INTO admin
+VALUES('admin', 'admin');
 
 alter table user add is_block boolean;
 UPDATE user SET is_block = 0 where is_block = NULL;
@@ -306,7 +314,8 @@ UPDATE user SET is_block = 0 where UID=19;
 
 
 
-ng serve --port 4401   
+ng serve
+--port 4401   
 
 
 ALTER TABLE user
@@ -332,91 +341,149 @@ ALTER TABLE student
     REFERENCES user (UID)
     ON UPDATE CASCADE;
 
-    ALTER TABLE 
+ALTER TABLE student
+DROP FOREIGN KEY FK_UID;
+ALTER TABLE 
     student ADD 
     CONSTRAINT 
     FK_UID FOREIGN KEY (UID) 
     REFERENCES user (UID)
-    ON UPDATE CASCADE;
+    ON UPDATE CASCADE
+    ON DELETE CASCADE;
 
 
 
-    INSERT INTO student
+INSERT INTO student
   (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID)
 VALUES
-  ('PRATIK', 'JAIN', 46, 1, 'MALE', 'MH', 'PUNE', '1997-01-15', 'pratikl17@gmail,com', 'DMC', 'CDAC','23');
+  ('PRATIK', 'JAIN', 46, 1, 'MALE', 'MH', 'PUNE', '1997-01-15', 'pratikl17@gmail,com', 'DMC', 'CDAC', '23');
 
 
-  ALTER TABLE 
+ALTER TABLE 
   student ADD USERNAME VARCHAR(500);
-  ALTER TABLE 
+ALTER TABLE 
   student ADD PASSWORD VARCHAR(500);
 
-  TRUNCATE TABLE student;
+TRUNCATE TABLE student;
+
+ALTER TABLE
+faculty ADD UID INT;
+
+
+ALTER TABLE 
+    faculty ADD 
+    CONSTRAINT 
+    FK_UID FOREIGN KEY (UID) 
+    REFERENCES user (UID)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE;
 
 
 
-
-
-
-  INSERT INTO student
-  (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
-VALUES
-  ('PRATIK', 'JAIN', 44, 1, 'MALE', 'MH', 'PUNE', '1997-09-15', 'pjpratikjin7@gmail,com', 'DMC', 'CDAC', '1','pratik','123');
-
-  
-INSERT INTO student
-  (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
-VALUES
-  ('PRASAD', 'DESHMUKH', 45, 1, 'MALE', 'MH', 'PUNE', '1997-07-11', 'pjprasaddeshmukh17@gmail,com', 'DMC', 'CDAC', '2','prasad','123');
-
-  
-INSERT INTO student
-  (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
-VALUES
-  ('PRASHANT', 'JAIN', 46, 1, 'MALE', 'MH', 'PUNE', '1997-01-15', 'pratikl17@gmail,com', 'DMC', 'CDAC', '3','prashant','123');
 
 
 INSERT INTO student
   (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
 VALUES
-  ('PRATIK', 'LAVHANE', 47, 1, 'FEMALE', 'MH', 'PUNE', '1997-05-06', 'neeta@gmail,com', 'DMC', 'CDAC', '4','pratik1','123');
+  ('PRATIK', 'JAIN', 44, 1, 'MALE', 'MH', 'PUNE', '1997-09-15', 'pjpratikjin7@gmail,com', 'DMC', 'CDAC', '1', 'pratik', '123');
 
 
 INSERT INTO student
   (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
 VALUES
-  ('PRANAV', 'JOSHI', 48, 1, 'MALE', 'MH', 'PUNE', '1997-01-04', 'rudra@gmail,com', 'DMC', 'CDAC', '5','pranav','123');
+  ('PRASAD', 'DESHMUKH', 45, 1, 'MALE', 'MH', 'PUNE', '1997-07-11', 'pjprasaddeshmukh17@gmail,com', 'DMC', 'CDAC', '2', 'prasad', '123');
 
 
 INSERT INTO student
   (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
 VALUES
-  ('SHRIPAD', 'JOSHI', 49, 1, 'FEMALE', 'MH', 'PUNE', '1997-01-11', 'vaishnavi@gmail,com', 'DMC', 'CDAC', '6','shripad','123');
+  ('PRASHANT', 'JAIN', 46, 1, 'MALE', 'MH', 'PUNE', '1997-01-15', 'pratikl17@gmail,com', 'DMC', 'CDAC', '3', 'prashant', '123');
 
 
 INSERT INTO student
   (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
 VALUES
-  ('AKASH', 'PATIL', 50, 1, 'FEMALE', 'MH', 'PUNE', '1997-11-02', 'chaitali@gmail,com', 'DMC', 'CDAC', '7','akash','123');
+  ('PRATIK', 'LAVHANE', 47, 1, 'FEMALE', 'MH', 'PUNE', '1997-05-06', 'neeta@gmail,com', 'DMC', 'CDAC', '4', 'pratik1', '123');
 
 
 INSERT INTO student
   (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
 VALUES
-  ('CHAITALI', 'POTODE', 51, 1, 'MALE', 'MH', 'PUNE', '1997-12-31', 'mukul@gmail,com', 'DMC', 'CDAC', '8','chaitali','123');
+  ('PRANAV', 'JOSHI', 48, 1, 'MALE', 'MH', 'PUNE', '1997-01-04', 'rudra@gmail,com', 'DMC', 'CDAC', '5', 'pranav', '123');
+
+
+INSERT INTO student
+  (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
+VALUES
+  ('SHRIPAD', 'JOSHI', 49, 1, 'FEMALE', 'MH', 'PUNE', '1997-01-11', 'vaishnavi@gmail,com', 'DMC', 'CDAC', '6', 'shripad', '123');
+
+
+INSERT INTO student
+  (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
+VALUES
+  ('AKASH', 'PATIL', 50, 1, 'FEMALE', 'MH', 'PUNE', '1997-11-02', 'chaitali@gmail,com', 'DMC', 'CDAC', '7', 'akash', '123');
+
+
+INSERT INTO student
+  (SFNAME ,SLNAME ,SROLLNO ,PID ,SGENDER ,SBOARD ,SADDRESS ,SBIRTHDATE ,SEMAIL ,SCLASS ,SDIVISION, UID, USERNAME, PASSWORD)
+VALUES
+  ('CHAITALI', 'POTODE', 51, 1, 'MALE', 'MH', 'PUNE', '1997-12-31', 'mukul@gmail,com', 'DMC', 'CDAC', '8', 'chaitali', '123');
 
 
 
 
-INSERT INTO user (EMAIL, USERNAME, PASSWORD, is_block, role) VALUES ('pratik@gmail.com','pratik','123', '0', 'student');
-INSERT INTO user (EMAIL, USERNAME, PASSWORD, is_block, role) VALUES ('prasad@gmail.com','prasad','123', '0', 'student');
-INSERT INTO user (EMAIL, USERNAME, PASSWORD, is_block, role) VALUES ('prashant@gmail.com','prashant','123', '0', 'student');
-INSERT INTO user (EMAIL, USERNAME, PASSWORD, is_block, role) VALUES ('pratik.1@gmail.com','pratik1','123', '0', 'student');
-INSERT INTO user (EMAIL, USERNAME, PASSWORD, is_block, role) VALUES ('pranav@gmail.com','pranav','123', '0', 'student');
-INSERT INTO user (EMAIL, USERNAME, PASSWORD, is_block, role) VALUES ('shripad@gmail.com','shripad','123', '0', 'student');
-INSERT INTO user (EMAIL, USERNAME, PASSWORD, is_block, role) VALUES ('akash@gmail.com','akash','123', '0', 'student');
-INSERT INTO user (EMAIL, USERNAME, PASSWORD, is_block, role) VALUES ('chaitali@gmail.com','chaitali','123', '0', 'student');
+INSERT INTO user
+  (EMAIL, USERNAME, PASSWORD, is_block, role)
+VALUES
+  ('pratik@gmail.com', 'pratik', '123', '0', 'student');
+INSERT INTO user
+  (EMAIL, USERNAME, PASSWORD, is_block, role)
+VALUES
+  ('prasad@gmail.com', 'prasad', '123', '0', 'student');
+INSERT INTO user
+  (EMAIL, USERNAME, PASSWORD, is_block, role)
+VALUES
+  ('prashant@gmail.com', 'prashant', '123', '0', 'student');
+INSERT INTO user
+  (EMAIL, USERNAME, PASSWORD, is_block, role)
+VALUES
+  ('pratik.1@gmail.com', 'pratik1', '123', '0', 'student');
+INSERT INTO user
+  (EMAIL, USERNAME, PASSWORD, is_block, role)
+VALUES
+  ('pranav@gmail.com', 'pranav', '123', '0', 'student');
+INSERT INTO user
+  (EMAIL, USERNAME, PASSWORD, is_block, role)
+VALUES
+  ('shripad@gmail.com', 'shripad', '123', '0', 'student');
+INSERT INTO user
+  (EMAIL, USERNAME, PASSWORD, is_block, role)
+VALUES
+  ('akash@gmail.com', 'akash', '123', '0', 'student');
+INSERT INTO user
+  (EMAIL, USERNAME, PASSWORD, is_block, role)
+VALUES
+  ('chaitali@gmail.com', 'chaitali', '123', '0', 'student');
 
 
- TRUNCATE TABLE user;
+
+
+TRUNCATE TABLE user;
+
+
+INSERT INTO user
+  (EMAIL, USERNAME, PASSWORD, is_block, role)
+VALUES
+  ('chaitali@gmail.com', 'chaitali', '123', '0', 'student');
+
+
+
+CREATE TABLE notice
+(
+  id int primary key,
+  AUTO_INCREMENT,
+  notice_text
+  (10000));
+  insert into notice
+    (notice_text)
+  VALUES("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It")

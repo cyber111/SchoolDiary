@@ -1,50 +1,51 @@
-<div class="form container container-fluid center" style="text-align: center;">
+<div class="form container container-fluid center">
     <div class="rows">
         <div class="col-md-2"></div>
         
-        <div *ngFor="let student of students" class="col-md-4">
-            
-           
-           
-           
+        <div *ngFor="let student of students" class="col-md-4 list-group">
+                
 
                 <div class="rows">
                     <div class="form-group">
-                        <ul>
-                            <li><label style="font-weight: bold; font-size: 15px;">First Name :</label>
-                                <label style="margin: 10px; font-size: 12px;">{{student.SFNAME}}</label></li>
-
-                            <li><label style="font-weight: bold; font-size: 15px;">Last Name :</label>
+                            
+                        <ul style="width: 20cm;">
+                              
+                            <li class="list-group-item">Student Profile</li>
+                            <li class="list-group-item"><label style="font-weight: bold; font-size: 15px;">First Name :</label>
+                                <label style="margin: 10px; font-size: 12px;">{{student.SFNAME}}</label ></li>
+                                    
+                            <li class="list-group-item "><label style="font-weight: bold; font-size: 15px;">Last Name :</label>
                                 <label style="margin: 10px; font-size: 12px;">{{student.SLNAME}}</label></li>
 
-                            <li><label style="font-weight: bold; font-size: 15px;">Roll No :</label>
+                            <li class="list-group-item "><label style="font-weight: bold; font-size: 15px;">Roll No :</label>
                                 <label style="margin: 10px; font-size: 12px;">{{student.SROLLNO}}</label></li>
 
-                            <li><label style="font-weight: bold; font-size: 15px;">Gender</label>
+                            <li class="list-group-item "><label style="font-weight: bold; font-size: 15px;">Gender</label>
                                 <label style="margin: 10px; font-size: 12px;">{{student.SGENDER}}</label></li>
 
-                            <li><label style="font-weight: bold; font-size: 15px;">Board</label>
+                            <li class="list-group-item "><label style="font-weight: bold; font-size: 15px;">Board</label>
                                 <label style="margin: 10px; font-size: 12px;">{{student.SBOARD}}</label></li>
 
-                            <li><label style="font-weight: bold; font-size: 15px;">Address</label>
+                            <li class="list-group-item "><label style="font-weight: bold; font-size: 15px;">Address</label>
                                 <label style="margin: 10px; font-size: 12px;">{{student.SADDRESS}}</label></li>
 
-                            <li><label style="font-weight: bold; font-size: 15px;">Date of birth</label>
+                            <li class="list-group-item "><label style="font-weight: bold; font-size: 15px;">Date of birth</label>
                                 <label style="margin: 10px; font-size: 12px;">{{student.SBIRTHDATE}}</label></li>
 
-                            <li><label style="font-weight: bold; font-size: 15px;">Email</label>
+                            <li class="list-group-item "><label style="font-weight: bold; font-size: 15px;">Email</label>
                                 <label style="margin: 10px; font-size: 12px;">{{student.SEMAIL}}</label></li>
 
-                            <li><label style="font-weight: bold; font-size: 15px;">Class</label>
+                            <li class="list-group-item "><label style="font-weight: bold; font-size: 15px;">Class</label>
                                 <label style="margin: 10px; font-size: 12px;">{{student.SCLASS}}</label></li>
 
-                            <li><label style="font-weight: bold; font-size: 15px;">Username</label>
+                            <li class="list-group-item "><label style="font-weight: bold; font-size: 15px;">Username</label>
                                 <label style="margin: 10px; font-size: 12px;">{{student.USERNAME}}</label></li>
+                                <a routerLink='/students-edit/{{student.S_ID}}' class="pull-right glyphicon  btn btn-secondary" >Edit</a>
                         </ul>
 
                     </div>
-                    <!-- <Button [routerLink]="['/students-edit/{{student.S_ID}}']" routerLinkActive="router-link-active"  class=" btn btn-primary glyphicon glyphicon-pencil pull-right"></Button> -->
-                    <a routerLink='/students-edit/{{student.S_ID}}' class="pull-right glyphicon glyphicon-pencil btn btn-secondary" ></a>
+                    
+                    
                 </div>
 
                 <div class="rows">

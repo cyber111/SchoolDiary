@@ -40,6 +40,22 @@ export class FacultyService {
         return this.httpClient.delete(this.url + '/' + id)
     }
 
+
+    getFaculty(uid : number)
+    {
+        return this.httpClient.get(this.url +'/'+ uid)
+    }
+
+
+    setNotice(text:string)
+    {
+        const body = {
+            text:text
+        }
+
+        return this.httpClient.post(this.url,body)
+    }
+
 }
 
 

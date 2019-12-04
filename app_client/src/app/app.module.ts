@@ -22,6 +22,8 @@ import { ClientHomeComponent } from './client/client.home.component';
 import { UserListComponent } from './user/list/user.list.component';
 import { StuedentHomeComponent } from './student/home/add/student.from.component';
 import { StudentProfileComponent } from './student-home/profile/student.profile.component';
+import { FacultyProfileComponent } from './faculty/home/profile/faculty.profile.component';
+import { FacultyNoticeComponent } from './faculty/notice/faculty.notice.component';
 
 const route : Route[]=
 [
@@ -43,6 +45,8 @@ const route : Route[]=
   
   {path: 'faculty-list', component:FacultyListComponent, canActivate:[UserService]},
   {path: 'faculty-add', component:FacultyAddComponent, canActivate:[UserService]},
+  {path: 'faculty-profile', component:FacultyProfileComponent, canActivate:[UserService]},
+  {path: 'faculty-notice', component:FacultyNoticeComponent, canActivate:[UserService]}
   
 ]
 
@@ -69,6 +73,8 @@ const route : Route[]=
 
     FacultyListComponent,
     FacultyAddComponent,
+    FacultyProfileComponent,
+    FacultyNoticeComponent,
 
     ClientHomeComponent
 

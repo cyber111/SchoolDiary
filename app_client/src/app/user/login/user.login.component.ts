@@ -29,10 +29,10 @@ export class UserLoginComponent implements OnInit {
 
     onLogin() {
         sessionStorage['user_roll'] = 1
-        localStorage['log_out_flag'] = '0'
+        sessionStorage['log_out_flag'] = '0'
         this.user_roll = sessionStorage['user_roll']
         this.postUser(this.username, this.password)
-        console.log(sessionStorage['user_roll'])    
+        console.log(sessionStorage['user_roll'])
     }
     postUser(username: string, password: string) {
         this.service.postUser(username, password)
@@ -41,31 +41,31 @@ export class UserLoginComponent implements OnInit {
 
 
                 if (response['status'] == 'success') {
-                    
+
                     const data = response['data']
-                    localStorage['student_uid'] = data['id']
-                    console.log(localStorage['student_uid']);
-                    
-                    if(data['role'] == 'student')
-                    {
+                    sessionStorage['uid'] = data['id']
+                    console.log(sessionStorage['student_uid']);
+
+                    if (data['role'] == 'student') {
+                        sessionStorage['role'] = data['role']
                         this.router.navigate(['/client-home'])
                         toastr.success('User Loged In')
-                        localStorage['login_status'] = '1'
-                        // localStorage['student_uid'] = data['uid']
+                        sessionStorage['login_status'] = '1'
+                        // sessionStorage['student_uid'] = data['uid']
                     }
-                    else if(data['role'] == 'teacher')
-                    {
+                    else if (data['role'] == 'faculty') {
+                        sessionStorage['role'] = data['role']
                         this.router.navigate(['/client-home'])
                         toastr.success('User Loged In')
-                        localStorage['login_status'] = '1'
+                        sessionStorage['login_status'] = '1'
                     }
-                    else if(data['role'] == 'parent')
-                    {
-                    this.router.navigate(['/client-home'])
-                    toastr.success('User Loged In')
-                    localStorage['login_status'] = '1'
+                    else if (data['role'] == 'parent') {
+                        sessionStorage['role'] = data['role']
+                        this.router.navigate(['/client-home'])
+                        toastr.success('User Loged In')
+                        sessionStorage['login_status'] = '1'
                     }
-    
+
                 }
                 else {
                     toastr.error('User Not There')
@@ -81,7 +81,7 @@ export class UserLoginComponent implements OnInit {
                 if (response['status'] == 'success') {
                     this.router.navigate(['/students-list'])
                     toastr.success('User Loged In')
-                    localStorage['login_status'] = '1'
+                    sessionStorage['login_status'] = '1'
                 }
                 else {
                     toastr.error('User Not There')

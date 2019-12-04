@@ -16,21 +16,47 @@ export class AppComponent {
   }
 
   toRender() {
-    if (localStorage['login_status'] == 1)
+    if (sessionStorage['login_status'] == 1)
       return true;
     else
       return false;
   }
 
+
+  isStudent() {
+    if (sessionStorage['role'] == 'student')
+      return true
+    else
+      return false
+  }
+
+  isFaculty() {
+    if (sessionStorage['role'] == 'faculty')
+      return true
+    else
+      return false
+  }
+
+  isParent() {
+    if (sessionStorage['role'] == 'parent')
+      return true
+    else
+      return false
+  }
+
+
+
+
+
   toRenderOne() {
-    if (localStorage['isLogo'] == 1)
+    if (sessionStorage['isLogo'] == 1)
       return true;
     else
       return false;
   }
 
   onLogout() {
-    localStorage.clear()
+    sessionStorage.clear()
     this.router.navigate(['/home'])
     toastr.success(' Logged out ')
   }

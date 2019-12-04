@@ -10,60 +10,74 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" style="font-weight: bold; font-size: 15dp;" [routerLink]="['/home']" routerLinkActive="router-link-active" href="#">SCHOOL DIARY</a>
+                <a class="navbar-brand" style="font-weight: bold; font-size: 15dp;" [routerLink]="['/home']"
+                    routerLinkActive="router-link-active" href="#">SCHOOL DIARY</a>
             </div>
             <div class="collapse navbar-collapse">
-                
+
                 <div *ngIf="toRender()">
+
+
+                    <div *ngIf="isStudent()">
+                        <!-- STUDENT -->
                         <ul class="nav navbar-nav">
-                                <li> <a routerLink="/students-profile">Profile</a></li>
-                            </ul>
-                            <ul class="nav navbar-nav">
-                                <li> <a routerLink="/home">Dashboard</a></li>
-                            </ul>
-                            <ul class="nav navbar-nav">
-                                <li> <a routerLink="/home">Tests</a></li>
-                            </ul>
-                            <ul class="nav navbar-nav">
-                                <li> <a routerLink="/home">Subjects</a></li>
-                            </ul>
-                            <ul class="nav navbar-nav">
-                                <li> <a routerLink="/home">Feedback</a></li>
-                            </ul>
-                            
+                            <li> <a routerLink="/students-profile">Profile</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/home">Dashboard</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/home">Tests</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/home">Subjects</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/home">Feedback</a></li>
+                        </ul>
+                    </div>
+
+                    <div *ngIf='isFaculty()'>
+                        <!-- FACULTY -->
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/faculty-profile">Profile</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/home">Dashboard</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/home">Manage Tests</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/home">Manage Schedule</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/home">Subjects</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/faculty-notice">Manage Notice</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/home">Setting</a></li>
+                        </ul>
+                    </div>
+
+
                 </div>
 
                 <ul *ngIf="!toRender()" class="nav navbar-nav pull-right">
-                        <li> <a (click)='onLogin()'>Login</a></li>
-                    </ul>
+                    <li> <a (click)='onLogin()'>Login</a></li>
+                </ul>
                 <ul *ngIf="toRender()" class="nav navbar-nav pull-right">
                     <li> <a (click)='onLogout()'>Logout</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <router-outlet></router-outlet>  
- 
+    <router-outlet></router-outlet>
+
 
 </body>
 
 
 </html>
-
-<!-- <div class="container">
-                    <nav class="navbar navbar-inverse">
-                        <div class="container-fluid">
-                            <div class="collapse navbar-collapse">
-                                <ul class="nav navbar-nav">
-                                    <li> <a routerLink="/students-list">Students</a></li>
-                                </ul>
-                                <ul class="nav navbar-nav">
-                                    <li> <a routerLink="/parent-list">Parent</a></li>
-                                </ul>
-                                <ul class="nav navbar-nav">
-                                    <li> <a routerLink="/faculty-list">Faculty</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                </div> -->
