@@ -1,25 +1,98 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-      </button>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Notice</title>
+</head>
+
+<body>
+  <div class="col-md-"></div>
+
+  <div class="container col-md-2">
+    <div class="list-group">
+      <button type="button" class="list-group-item" (click)="onNewNotice()">New Notice</button>
+      <button type="button" class="list-group-item" (click)="onEditNotice()">Edit Notice</button>
+      <button type="button" class="list-group-item" (click)="onDeleteNotice()">Delete Notice</button>
+    </div>
+  </div>
+
+
+  <!-- New Notice -->
+  <div *ngIf="newFlag" class="container container-fluid border-primary col-md-8 panel panel-default">
+
+
+    <div class="form-group">
+      <label for="comment">Notice:</label>
+      <textarea [(ngModel)]="text" class="form-control" rows="10" id="comment"></textarea>
+      <button (click)='setNotices()' class="btn btn-primary" style="margin-top: 10px;">Add Notice</button>
+    </div>
+
+
+
+  </div>
+
+  <!-- Edit Notices-->
+  <div *ngIf="editFlag" class="container container-fluid border-primary col-md-8"
+    style="height:8cm ;">
+
+    <div class="form-group">
+      <label for="comment">Select Notice:</label>
+      <!-- <textarea class="form-control" rows="10" id="comment"></textarea> -->
+      <table class="table-bordered table-striped">
+        <thead>
+          <th>Notice</th>
+          <th>Text</th>
+          <th>Action</th>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let notice of notices">
+            <td>{{notice.id}}</td>
+            <td>{{notice.notice_text}}</td>
+            <td>
+                <button class="btn btn-default glyphicon glyphicon-pencil" style="margin-top: 10px;"></button>
+                <button class="btn btn-default glyphicon glyphicon-trash" style="margin-top: 10px;"></button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+      <!-- <button class="btn btn-primary glyphicon glyphicon-pencil" style="margin-top: 10px;"></button> -->
+    </div>
+
+  </div>
+
+  <!-- Delete Notice -->
+  <div *ngIf="deleteFlag" class="container container-fluid border-primary col-md-8"
+    style="height:8cm ;">
+    <div class="form-group container-fluid">
+      <label for="comment">Select Notice:</label>
+      <table class="table-bordered table-striped">
+          <thead>
+            <th>Notice</th>
+            <th>Text</th>
+            <th>Action</th>
+          </thead>
+  
+          <tbody>
+            <tr *ngFor="let notice of notices">
+              <td>{{notice.id}}</td>
+              <td>{{notice.notice_text}}</td>
+              <td>
+                  <button class="btn btn-primary glyphicon glyphicon-pencil" style="margin-top: 10px;"></button>
+              </td>
+  
+            </tr>
+          </tbody>
+        </table>
       
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
+
+
+
+  </div>
+
+</body>
+
+</html>

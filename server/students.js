@@ -31,18 +31,18 @@ router.post('/', (request, responce) => {
 
     console.log("post student")
     const conn = db.connect()
-    const 
-    {
-        FirstName, LastName, RollNo, 
-        ParentID, Gender, Board, Address, 
-        BirthDate, Email, Class, Division,
-        DiviosnID, ClassID, USerID, UserName, Password 
-    } = request.body
-    
+    const
+        {
+            FirstName, LastName, RollNo,
+            ParentID, Gender, Board, Address,
+            BirthDate, Email, Class, Division,
+            DiviosnID, ClassID, USerID, UserName, Password
+        } = request.body
+
     console.log(BirthDate);
-    
-    const statement = 
-                        `
+
+    const statement =
+        `
                         INSERT INTO student
                         (
                         SFNAME ,SLNAME,SROLLNO
@@ -80,16 +80,15 @@ router.delete('/:id', (request, responce) => {
 })
 
 
-router.put('/:id', (request, response)=>
-{
+router.put('/:id', (request, response) => {
     const conn = db.connect()
-    const 
-    { 
-        FirstName, LastName, RollNo, 
-        ParentID, Gender, Board, Address, 
-        BirthDate, Email, Class, Division,
-        DiviosnID, ClassID
-    } = request.body
+    const
+        {
+            FirstName, LastName, RollNo,
+            ParentID, Gender, Board, Address,
+            BirthDate, Email, Class, Division,
+            DiviosnID, ClassID
+        } = request.body
 
     const id = request.params.id
 
@@ -106,15 +105,26 @@ router.put('/:id', (request, response)=>
     SDIVISION='${Division}', 
     DID='${DiviosnID}',
     CID='${ClassID}'
-    WHERE S_ID= '${id}'` 
+    WHERE S_ID= '${id}'`
 
-    conn.query(statement, (error, data)=>
-    {
+    conn.query(statement, (error, data) => {
         conn.end()
         response.send(utils.createResult(error, data))
     })
 })
 
+//for getting lattest UID
+router.post('/user', (request, response) => {
+    console.log("hello");
+    
+    const conn = db.connect()
+    const statement = `select * from user order by UID desc limit 1`
+
+    conn.query(statement, (error, data) => {
+        conn.end()
+        response.send(utils.createResult(error, data))
+    })
+})
 
 
 

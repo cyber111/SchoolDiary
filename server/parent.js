@@ -14,7 +14,18 @@ router.get('/', (request, responce) => {
         responce.send(utils.createResult(error, data))
     })
 })
+router.post('/user', (request, response) => {
+    console.log("hello");
+    
+    const conn = db.connect()
+    const statement = `select * from user order by UID desc limit 1`
 
+    conn.query(statement, (error, data) => {
+        conn.end()
+
+        response.send(utils.createResult(error, data))
+    })
+})
 
 router.post('/', (request, responce) => {
 

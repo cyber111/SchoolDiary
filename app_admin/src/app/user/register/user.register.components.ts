@@ -24,7 +24,7 @@ export class UserRegisterComponent implements OnInit {
     onRegister()
     {
         console.log(this.username + this.password + this.email);
-        this.service.registerUser(this.username, this.password, this.email)
+        this.service.registerUser(this.username, this.password, this.email,"")
         .subscribe(response => 
         {
             if(response['status'] = 'success')

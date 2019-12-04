@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StudentService } from 'src/app/student/student.service';
 import * as toastr from "toastr";
+import { log } from 'util';
 
 @Component({
     selector: 'student-profile',
@@ -15,10 +16,12 @@ export class StudentProfileComponent implements OnInit {
 
         this.showList()
     }
-    uid  = localStorage['student_uid']
+    uid  = sessionStorage['uid']
     
     
     showList() {
+        console.log(this.uid);
+         
         this.service
             .getstudent(this.uid)
             .subscribe(response => {

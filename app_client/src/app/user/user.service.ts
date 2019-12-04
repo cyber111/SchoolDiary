@@ -15,7 +15,7 @@ export class UserService implements CanActivate{
     }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
         
-        if(localStorage['login_status'])
+        if(sessionStorage['login_status'])
             return true
             this.router.navigate(['/user-login'])
             return false

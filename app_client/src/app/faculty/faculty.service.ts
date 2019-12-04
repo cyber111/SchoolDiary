@@ -53,7 +53,12 @@ export class FacultyService {
             text:text
         }
 
-        return this.httpClient.post(this.url,body)
+        return this.httpClient.post(this.url + '/setnotice',body)
+    }
+
+    getNotice()
+    {
+        return this.httpClient.post(this.url + '/notice',{});
     }
 
 }
@@ -61,3 +66,4 @@ export class FacultyService {
 
 
 
+    

@@ -28,11 +28,8 @@ export class UserLoginComponent implements OnInit {
 
 
     onLogin() {
-        sessionStorage['user_roll'] = 1
-        sessionStorage['log_out_flag'] = '0'
-        this.user_roll = sessionStorage['user_roll']
         this.postUser(this.username, this.password)
-        console.log(sessionStorage['user_roll'])
+        
     }
     postUser(username: string, password: string) {
         this.service.postUser(username, password)
@@ -43,33 +40,37 @@ export class UserLoginComponent implements OnInit {
                 if (response['status'] == 'success') {
 
                     const data = response['data']
-                    sessionStorage['uid'] = data['id']
-                    console.log(sessionStorage['student_uid']);
+                    if (data['is_block'] == 0) {
+                        sessionStorage['uid'] = data['id']
+                        // console.log(sessionStorage['student_uid']);
 
-                    if (data['role'] == 'student') {
-                        sessionStorage['role'] = data['role']
-                        this.router.navigate(['/client-home'])
-                        toastr.success('User Loged In')
-                        sessionStorage['login_status'] = '1'
-                        // sessionStorage['student_uid'] = data['uid']
-                    }
-                    else if (data['role'] == 'faculty') {
-                        sessionStorage['role'] = data['role']
-                        this.router.navigate(['/client-home'])
-                        toastr.success('User Loged In')
-                        sessionStorage['login_status'] = '1'
-                    }
-                    else if (data['role'] == 'parent') {
-                        sessionStorage['role'] = data['role']
-                        this.router.navigate(['/client-home'])
-                        toastr.success('User Loged In')
-                        sessionStorage['login_status'] = '1'
-                    }
+                        if (data['role'] == 'student') {
+                            sessionStorage['role'] = data['role']
 
-                }
-                else {
+                            this.router.navigate(['/client-home'])
+                            toastr.success('User Loged In')
+                            sessionStorage['login_status'] = '1'
+                            // sessionStorage['student_uid'] = data['uid']
+                        }
+                        else if (data['role'] == 'faculty') {
+                            sessionStorage['role'] = data['role']
+                            this.router.navigate(['/client-home'])
+                            toastr.success('User Loged In')
+                            sessionStorage['login_status'] = '1'
+                        }
+                        else if (data['role'] == 'parent') {
+                            sessionStorage['role'] = data['role']
+                            this.router.navigate(['/client-home'])
+                            toastr.success('User Loged In')
+                            sessionStorage['login_status'] = '1'
+                        }
+                    }
+                    else
+                        toastr.error('User is block')
+
+
+                } else
                     toastr.error('User Not There')
-                }
             })
     }
     postAdmin(username: string, password: string) {

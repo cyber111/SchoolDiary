@@ -9,6 +9,7 @@ router.post('/register', (request, response) => {
     const username = request.body.username;
     const password = request.body.password;
     const email = request.body.email
+    const role = request.body.role
     console.log(password)
 
     const conn = db.connect()
@@ -17,10 +18,10 @@ router.post('/register', (request, response) => {
     INSERT INTO user 
         (
             EMAIL,USERNAME,
-            PASSWORD
+            PASSWORD, is_block, role
                 ) 
         VALUES 
-        ('${email}','${username}','${password}')`
+        ('${email}','${username}','${password}', '${0}', '${role}')`
 
     conn.query(statement, (error, data) => {
         console.log(error)
@@ -80,7 +81,8 @@ router.post('/login', (request, response) => {
                 id:user['UID'],
                 role: user['role'],
                 username: user['USERNAME'],
-                email: user['EMAIL']
+                email: user['EMAIL'],
+                is_block : user['is_block']
             }
             response.send(utils.createResult(null, info))
         }

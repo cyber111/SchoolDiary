@@ -26,13 +26,15 @@ export class UserService implements CanActivate{
         return this.httpClient.get('url')
     }
 
-    registerUser(username: string, password:string, email:string)
+    registerUser(username: string, password:string, email:string,role:string)
     {
         const body = 
         {
             username:username,
             password : password,
-            email:email
+            email:email,
+            role:role
+
         }
         console.log(body)
 
@@ -45,7 +47,8 @@ export class UserService implements CanActivate{
         const body = 
         {
             username : username,
-            password :password
+            password :password,
+            
         }
         return this.httpClient.post(this.url + '/login', body)
     }

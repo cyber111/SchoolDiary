@@ -34,23 +34,23 @@ export class UserLoginComponent implements OnInit {
         this.postAdmin(this.username, this.password)
         console.log(sessionStorage['user_roll'])    
     }
-    postUser(username: string, password: string) {
-        this.service.postUser(username, password)
-            .subscribe(response => {
+    // postUser(username: string, password: string) {
+    //     this.service.postUser(username, password)
+    //         .subscribe(response => {
 
-                console.log(response['status']);
+    //             console.log(response['status']);
 
-                if (response['status'] == 'success') {
-                    // localStorage.setItem('user','client')
-                    this.router.navigate(['/client-home'])
-                    toastr.success('User Loged In')
-                    localStorage['login_status'] = '1'
-                }
-                else {
-                    toastr.error('User Not There')
-                }
-            })
-    }
+    //             if (response['status'] == 'success') {
+    //                 // localStorage.setItem('user','client')
+    //                 this.router.navigate(['/client-home'])
+    //                 toastr.success('User Loged In')
+    //                 localStorage['login_status'] = '1'
+    //             }
+    //             else {
+    //                 toastr.error('User Not There')
+    //             }
+    //         })
+    // }
     postAdmin(username: string, password: string) {
         this.service.postAdmin(username, password)
             .subscribe(response => {

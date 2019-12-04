@@ -26,8 +26,20 @@ router.get('/:uid', (request, responce) => {
         responce.send(utils.createResult(error, data))  
     })
 })
+router.post('/user', (request, response) => {
+    console.log("hello");
+    
+    const conn = db.connect()
+    const statement = `select * from user order by UID desc limit 1`
 
-router.get('/notice', (request, responce) => {
+    conn.query(statement, (error, data) => {
+        conn.end()
+
+        response.send(utils.createResult(error, data))
+    })
+})
+
+router.post('/notice', (request, responce) => {
     
     const conn = db.connect()
     const statement = `SELECT * FROM notice`
@@ -38,11 +50,11 @@ router.get('/notice', (request, responce) => {
     })
 })
 
-router.post('/notice', (request, responce) => {
+router.post('/setnotice', (request, responce) => {
     
     const conn = db.connect()
     const {notice_text} = responce.body
-    const statement = `insert into notice (notice_text) values ('${text}')`
+    const statement = `insert into notice (notice_text) values ('${notice_text}')`
 
     conn.query(statement, (error, data) => {
         conn.end()

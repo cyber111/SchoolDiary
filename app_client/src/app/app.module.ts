@@ -24,13 +24,14 @@ import { StuedentHomeComponent } from './student/home/add/student.from.component
 import { StudentProfileComponent } from './student-home/profile/student.profile.component';
 import { FacultyProfileComponent } from './faculty/home/profile/faculty.profile.component';
 import { FacultyNoticeComponent } from './faculty/notice/faculty.notice.component';
+import { FacultyTestComponent } from './faculty/test/faculty.test.component';
 
 const route : Route[]=
 [
-  {path : 'students-list', component: StudentListComponent, canActivate:[UserService]},
-  {path : 'students-add', component: StudentAddComponent, canActivate:[UserService]},
-  {path : 'students-edit/:S_ID', component: StudentEditComponent, canActivate:[UserService]},
-  {path: 'students-profile', component:StudentProfileComponent, canActivate:[UserService]},
+  {path : 'students-list', component: StudentListComponent},
+  {path : 'students-add', component: StudentAddComponent},
+  {path : 'students-edit/:S_ID', component: StudentEditComponent},
+  {path: 'students-profile', component:StudentProfileComponent},
   
   {path : 'user-register', component: UserRegisterComponent},
   {path: 'user-login', component: UserLoginComponent},
@@ -46,7 +47,8 @@ const route : Route[]=
   {path: 'faculty-list', component:FacultyListComponent, canActivate:[UserService]},
   {path: 'faculty-add', component:FacultyAddComponent, canActivate:[UserService]},
   {path: 'faculty-profile', component:FacultyProfileComponent, canActivate:[UserService]},
-  {path: 'faculty-notice', component:FacultyNoticeComponent, canActivate:[UserService]}
+  {path: 'faculty-notice', component:FacultyNoticeComponent, canActivate:[UserService]},
+  {path: 'faculty-test', component:FacultyTestComponent, canActivate:[UserService]}
   
 ]
 
@@ -75,6 +77,7 @@ const route : Route[]=
     FacultyAddComponent,
     FacultyProfileComponent,
     FacultyNoticeComponent,
+    FacultyTestComponent,
 
     ClientHomeComponent
 

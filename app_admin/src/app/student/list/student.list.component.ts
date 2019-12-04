@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
 export class StudentListComponent implements OnInit {
 
     students : any[]
-    constructor(private router : Router, private service : StudentService) 
+    constructor(private service : StudentService) 
     { 
         
         this.showList()

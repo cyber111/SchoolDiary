@@ -49,7 +49,7 @@ CREATE TABLE `classes` (
   `CID` int(11) NOT NULL AUTO_INCREMENT,
   `CGRADE` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`CID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +58,7 @@ CREATE TABLE `classes` (
 
 LOCK TABLES `classes` WRITE;
 /*!40000 ALTER TABLE `classes` DISABLE KEYS */;
-INSERT INTO `classes` VALUES (1,'10TH');
+INSERT INTO `classes` VALUES (1,'10TH'),(2,'9TH'),(3,'8TH');
 /*!40000 ALTER TABLE `classes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,7 +82,7 @@ CREATE TABLE `division` (
 
 LOCK TABLES `division` WRITE;
 /*!40000 ALTER TABLE `division` DISABLE KEYS */;
-INSERT INTO `division` VALUES (1,'DMC'),(2,'DAC'),(3,'DBDA');
+INSERT INTO `division` VALUES (1,'A'),(2,'A'),(3,'A');
 /*!40000 ALTER TABLE `division` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,7 +108,7 @@ CREATE TABLE `faculty` (
   KEY `FK_UID_FACULTY` (`UID`),
   CONSTRAINT `FK_F_CID` FOREIGN KEY (`CID`) REFERENCES `classes` (`CID`),
   CONSTRAINT `FK_UID_FACULTY` FOREIGN KEY (`UID`) REFERENCES `user` (`UID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,7 +117,7 @@ CREATE TABLE `faculty` (
 
 LOCK TABLES `faculty` WRITE;
 /*!40000 ALTER TABLE `faculty` DISABLE KEYS */;
-INSERT INTO `faculty` VALUES (1,'ROHAN','PARMANE',8888888888,'PUNE','MALE','LAB-FACULTY',NULL,11),(2,'Manjusha','Nikam',8888888888,'PUNE','FEMALE','LAB-FACULTY',NULL,10),(8,'Rahul','Patil',976398395,'Pune','MALE','C++',NULL,9),(9,'Rucha','Patil',976565645,'Pune','undefined','LabFaculty',NULL,NULL);
+INSERT INTO `faculty` VALUES (1,'ROHAN','PARMANE',8888888888,'PUNE','MALE','LAB-FACULTY',1,11),(2,'Manjusha','Nikam',8888888888,'PUNE','FEMALE','LAB-FACULTY',2,10),(8,'Rahul','Patil',976398395,'Pune','MALE','C++',3,9);
 /*!40000 ALTER TABLE `faculty` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,7 +132,7 @@ CREATE TABLE `notice` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `notice_text` varchar(10000) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,7 +141,7 @@ CREATE TABLE `notice` (
 
 LOCK TABLES `notice` WRITE;
 /*!40000 ALTER TABLE `notice` DISABLE KEYS */;
-INSERT INTO `notice` VALUES (1,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It');
+INSERT INTO `notice` VALUES (1,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It'),(2,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It'),(3,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It'),(4,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It');
 /*!40000 ALTER TABLE `notice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -233,7 +233,7 @@ CREATE TABLE `student` (
   CONSTRAINT `FK_CID` FOREIGN KEY (`CID`) REFERENCES `classes` (`CID`),
   CONSTRAINT `FK_DID` FOREIGN KEY (`DID`) REFERENCES `division` (`DID`),
   CONSTRAINT `FK_UID` FOREIGN KEY (`UID`) REFERENCES `user` (`UID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -242,7 +242,7 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (1,'PRATIK','JAIN',44,1,'MALE','MH','PUNE','1997-09-15','pjpratikjin7@gmail,com','DMC','CDAC',NULL,NULL,1,'pratik','123'),(2,'PRASAD','DESHMUKH',45,1,'MALE','MH','PUNE','1997-07-11','pjprasaddeshmukh17@gmail,com','DMC','CDAC',NULL,NULL,2,'prasad','123'),(3,'PRASHANT','JAIN',46,1,'MALE','MH','PUNE','1997-01-15','pratikl17@gmail,com','DMC','CDAC',NULL,NULL,3,'prashant','123'),(4,'PRATIK','LAVHANE',47,1,'MALE','MH','PUNE','1997-05-06','neeta@gmail,com','DMC','CDAC',NULL,NULL,4,'pratik1','123'),(5,'PRANAV','JOSHI',48,1,'Male','MH','PUNE','2019-12-08','pranav@gmail,com','DMC','CDAC',1,1,5,'pranav','123'),(6,'SHRIPAD','JOSHI',49,1,'MALE','MH','PUNE','1997-01-11','vaishnavi@gmail,com','DMC','CDAC',NULL,NULL,6,'shripad','123'),(7,'AKASH','PATIL',50,1,'MALE','MH','PUNE','1997-11-02','chaitali@gmail,com','DMC','CDAC',NULL,NULL,7,'akash','123'),(8,'CHAITALI','POTODE',51,1,'FEMALE','MH','PUNE','1997-12-31','mukul@gmail,com','DMC','CDAC',NULL,NULL,8,'chaitali','123');
+INSERT INTO `student` VALUES (1,'PRATIK','JAIN',44,1,'Male','MH','PUNE','2019-12-19','pjpratikjin7@gmail,com','10TH','A',1,1,1,'pratik','123'),(2,'PRASAD','DESHMUKH',45,1,'Male','MH','PUNE','2019-12-18','pjprasaddeshmukh17@gmail,com','9TH','A',1,2,2,'prasad','123'),(3,'PRASHANT','JAIN',46,1,'Male','MH','PUNE','2019-12-05','pratikl17@gmail,com','10TH','A',1,2,3,'prashant','123'),(4,'PRATIK','LAVHANE',47,1,'Male','MH','PUNE','2019-11-29','PRATIK@gmail,com','8TH','A',1,3,4,'pratik1','123'),(5,'PRANAV','JOSHI',48,1,'Male','MH','PUNE','2019-12-10','pranav@gmail,com','10TH','A',1,1,5,'pranav','123'),(6,'SHRIPAD','JOSHI',49,1,'Female','MH','PUNE','2019-12-08','vaishnavi@gmail,com','10TH','A',1,1,6,'shripad','123'),(7,'AKASH','PATIL',50,1,'Male','MH','PUNE','2019-12-07','chaitali@gmail,com','10TH','A',1,1,7,'akash','123'),(8,'CHAITALI','POTODE',51,1,'Male','MH','PUNE','2019-12-15','CHAI@gmail,com','8TH','A',1,3,8,'chaitali','123'),(16,'Pradeep','Jagtap',1,1,'Male','MH','Mumbai','2019-12-14','pradeep@test.com','1','1',1,1,12,'pradeep','123'),(17,'Shradha','Kadavekar',23,1,'Female','MH','Pune','2019-12-13','shadha@gail.com','DMC','DMC',1,1,14,'shradha','123');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -261,7 +261,7 @@ CREATE TABLE `user` (
   `is_block` tinyint(1) DEFAULT NULL,
   `role` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`UID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -270,7 +270,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('pratik@gmail.com','pratik','123',1,1,'student'),('prasad@gmail.com','prasad','123',2,0,'student'),('prashant@gmail.com','prashant','123',3,0,'student'),('pratik.1@gmail.com','pratik1','123',4,0,'student'),('pranav@gmail.com','pranav','123',5,0,'student'),('shripad@gmail.com','shripad','123',6,0,'student'),('akash@gmail.com','akash','123',7,0,'student'),('chaitali@gmail.com','chaitali','123',8,0,'student'),('rahul@gmail.com','rahul','123',9,0,'faculty'),('manjush@gmail.com','manjusha','123',10,0,'faculty'),('rohan@gmail.com','rohan','123',11,0,'faculty');
+INSERT INTO `user` VALUES ('pratik@gmail.com','pratik','123',1,0,'student'),('prasad@gmail.com','prasad','123',2,0,'student'),('prashant@gmail.com','prashant','123',3,0,'student'),('pratik.1@gmail.com','pratik1','123',4,0,'student'),('pranav@gmail.com','pranav','123',5,0,'student'),('shripad@gmail.com','shripad','123',6,0,'student'),('akash@gmail.com','akash','123',7,0,'student'),('chaitali@gmail.com','chaitali','123',8,0,'student'),('rahul@gmail.com','rahul','123',9,0,'faculty'),('manjush@gmail.com','manjusha','123',10,0,'faculty'),('rohan@gmail.com','rohan','123',11,0,'faculty'),('pradeep@test.com','pradeep','123',12,0,'student'),('undefined','undefined','undefined',13,0,''),('shadha@gail.com','shradha','123',14,0,'student');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -283,4 +283,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-04  9:14:35
+-- Dump completed on 2019-12-04 22:39:26
