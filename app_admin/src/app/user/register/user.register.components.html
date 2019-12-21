@@ -16,13 +16,16 @@
           <input [(ngModel)]="email" type="email" class="form-control">
         </div>
         <div class="form-group">
-          <label for="">Pasword</label>
+          <label for="">Password</label>
           <input [(ngModel)]="password" type="password" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="">Role</label>
+          <input [(ngModel)]="role" type="text" class="form-control">
         </div>
 
         <div class="form-group">
           <button (click)="onRegister()" class="btn btn-success">Register</button>
-          <a routerLink="/user-login" class="btn btn-danger pull-right">Cancel</a>
         </div>
       </div>
     </div>

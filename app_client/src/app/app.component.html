@@ -37,6 +37,33 @@
                         </ul>
                     </div>
 
+
+
+                    <div *ngIf="isParent()">
+                        <!-- PARENT -->
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/students-profile">Profile</a></li>
+                        </ul>   
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/home">Dashboard</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/home">Show Grades of ward</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/home">Subjects of ward</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/home">Feedbacks</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav">
+                            <li> <a routerLink="/home">Notices</a></li>
+                        </ul>
+                    </div>
+
+
+
+                    
                     <div *ngIf='isFaculty()'>
                         <!-- FACULTY -->
                         <ul class="nav navbar-nav">

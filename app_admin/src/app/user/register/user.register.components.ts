@@ -13,6 +13,7 @@ export class UserRegisterComponent implements OnInit {
     username: ''
     password: ''
     email : ''
+    role:''
 
 
 
@@ -24,7 +25,7 @@ export class UserRegisterComponent implements OnInit {
     onRegister()
     {
         console.log(this.username + this.password + this.email);
-        this.service.registerUser(this.username, this.password, this.email,"")
+        this.service.registerUser(this.username, this.password, this.email, this.role)
         .subscribe(response => 
         {
             if(response['status'] = 'success')
@@ -35,7 +36,7 @@ export class UserRegisterComponent implements OnInit {
             {
                 toastr.error('ERROR')
             }
-        this.router.navigate(['/user-login'])
+        this.router.navigate(['/user-list'])
         })
     }
 
