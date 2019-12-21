@@ -25,6 +25,11 @@ import { StudentProfileComponent } from './student-home/profile/student.profile.
 import { FacultyProfileComponent } from './faculty/home/profile/faculty.profile.component';
 import { FacultyNoticeComponent } from './faculty/notice/faculty.notice.component';
 import { FacultyTestComponent } from './faculty/test/faculty.test.component';
+import { StudentSubjectComponent } from "./student/subject/student.subject.component";
+import { StudentTestComponent } from './student/test/student.test.component';
+import { StudentFeedbackComponent } from './student/feedback/student.feedback.component';
+import { StudentDashboardComponent } from './student/dashboard/student.dashboard.component';
+
 
 const route : Route[]=
 [
@@ -32,6 +37,11 @@ const route : Route[]=
   {path : 'students-add', component: StudentAddComponent},
   {path : 'students-edit/:S_ID', component: StudentEditComponent},
   {path: 'students-profile', component:StudentProfileComponent},
+  {path: 'students-subject', component:StudentSubjectComponent},  
+  {path: 'students-test', component:StudentTestComponent},
+  {path: 'students-feedback', component:StudentFeedbackComponent},
+  {path: 'students-dashboard', component:StudentDashboardComponent},
+  
   
   {path : 'user-register', component: UserRegisterComponent},
   {path: 'user-login', component: UserLoginComponent},
@@ -64,6 +74,11 @@ const route : Route[]=
     StudentEditComponent,
     StuedentHomeComponent,
     StudentProfileComponent,
+    StudentSubjectComponent,
+    StudentTestComponent,
+    StudentFeedbackComponent,
+    StudentDashboardComponent,
+    
 
     
     UserLoginComponent,
