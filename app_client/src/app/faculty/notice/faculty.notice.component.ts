@@ -11,8 +11,10 @@ export class FacultyNoticeComponent implements OnInit {
 
     newFlag = false
     editFlag = false
+    editFlag1 = false
     deleteFlag = false
     text: string
+    id:number
     notices:[]
     constructor(private service: FacultyService) {
         
@@ -25,15 +27,12 @@ export class FacultyNoticeComponent implements OnInit {
             .subscribe(response => {
                 if (response['status'] == 'success') {
                     alert(response['status'])
-                    
-
                 }
                 else
                 {
                     alert("Error")
                     console.log(response['error']);
                 }
-
             })
 
     }
@@ -44,14 +43,38 @@ export class FacultyNoticeComponent implements OnInit {
             .subscribe(response => {
                 if (response['status'] == 'success') {
                     this.notices=response['data']
-                    
                 }
                 else
                     alert("Error")
-                    
-                    
-
             })
+
+    }
+
+    editNotice()
+    {
+        this.service.editNotice(this.text, this.id)
+            .subscribe(response => {
+                if (response['status'] == 'success') {
+                    alert(response['status'])
+                }
+                else
+                {
+                    alert("Error")
+                    console.log(response['error']);
+                }
+            })
+    }
+
+    onEdit(notice_text:string, id:number)
+    {
+        alert("//////")
+        this.id = id
+        this.text = notice_text
+        this.editFlag = false
+        this.deleteFlag = false
+        this.newFlag = false
+        this.editFlag1 = true
+        
 
     }
     
@@ -67,6 +90,10 @@ export class FacultyNoticeComponent implements OnInit {
         this.deleteFlag = false
         this.newFlag = false
         this.loadNotices()
+    }
+
+    onEditNotice2() {
+
     }
 
     onDeleteNotice() {

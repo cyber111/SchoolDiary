@@ -39,28 +39,7 @@ router.post('/user', (request, response) => {
     })
 })
 
-router.post('/notice', (request, responce) => {
-    
-    const conn = db.connect()
-    const statement = `SELECT * FROM notice`
 
-    conn.query(statement, (error, data) => {
-        conn.end()
-        responce.send(utils.createResult(error, data))  
-    })
-})
-
-router.post('/setnotice', (request, responce) => {
-    
-    const conn = db.connect()
-    const {notice_text} = responce.body
-    const statement = `insert into notice (notice_text) values ('${notice_text}')`
-
-    conn.query(statement, (error, data) => {
-        conn.end()
-        responce.send(utils.createResult(error, data))  
-    })
-})
 
 router.post('/', (request, responce) => {
 

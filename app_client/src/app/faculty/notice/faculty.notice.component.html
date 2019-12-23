@@ -32,6 +32,21 @@
 
   </div>
 
+   <!-- edit specific Notice -->
+   <div *ngIf="editFlag1" class="container container-fluid border-primary col-md-8 panel panel-default">
+    
+
+
+    <div class="form-group">
+      <label for="comment">Notice:</label>
+      <textarea [(ngModel)]="text" class="form-control" rows="10" id="comment"></textarea>
+      <button (click)='editNotice()' class="btn btn-primary" style="margin-top: 10px;">Edit Notice</button>
+    </div>
+
+
+
+  </div>
+
   <!-- Edit Notices-->
   <div *ngIf="editFlag" class="container container-fluid border-primary col-md-8"
     style="height:8cm ;">
@@ -51,7 +66,7 @@
             <td>{{notice.id}}</td>
             <td>{{notice.notice_text}}</td>
             <td>
-                <button class="btn btn-default glyphicon glyphicon-pencil" style="margin-top: 10px;"></button>
+                <button (click)="onEdit(notice.notice_text, notice.id)" class="btn btn-default glyphicon glyphicon-pencil" style="margin-top: 10px;"></button>
                 <button class="btn btn-default glyphicon glyphicon-trash" style="margin-top: 10px;"></button>
             </td>
 

@@ -5,6 +5,7 @@ const parentRouter = require('./parent')
 const facultyRouter = require('./faculty')
 const bodyParser = require('body-parser')
 const adminRouter = require('./admin')
+const noticeRouter = require('./notice')
 const app = express()
 
 // for CORS
@@ -20,6 +21,7 @@ app.use('/student', studentRouter)
 app.use('/user', userRouter)
 app.use('/parent', parentRouter)
 app.use('/faculty', facultyRouter)
+app.use('/notice', noticeRouter)
 
 
 
