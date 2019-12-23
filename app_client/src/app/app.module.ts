@@ -29,7 +29,7 @@ import { StudentSubjectComponent } from "./student/subject/student.subject.compo
 import { StudentTestComponent } from './student/test/student.test.component';
 import { StudentFeedbackComponent } from './student/feedback/student.feedback.component';
 import { StudentDashboardComponent } from './student/dashboard/student.dashboard.component';
-
+import { FacultyDashboardComponent } from "./faculty/dashboard/faculty.dashboard.component";
 
 const route : Route[]=
 [
@@ -58,7 +58,8 @@ const route : Route[]=
   {path: 'faculty-add', component:FacultyAddComponent, canActivate:[UserService]},
   {path: 'faculty-profile', component:FacultyProfileComponent, canActivate:[UserService]},
   {path: 'faculty-notice', component:FacultyNoticeComponent, canActivate:[UserService]},
-  {path: 'faculty-test', component:FacultyTestComponent, canActivate:[UserService]}
+  {path: 'faculty-test', component:FacultyTestComponent, canActivate:[UserService]},
+  {path: 'faculty-dashboard', component:FacultyDashboardComponent, canActivate:[UserService]}
   
 ]
 
@@ -93,6 +94,7 @@ const route : Route[]=
     FacultyProfileComponent,
     FacultyNoticeComponent,
     FacultyTestComponent,
+    FacultyDashboardComponent,
 
     ClientHomeComponent
 
