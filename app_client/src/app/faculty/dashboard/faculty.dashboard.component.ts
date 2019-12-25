@@ -9,5 +9,6 @@ import { Component, OnInit } from '@angular/core';
 export class FacultyDashboardComponent implements OnInit {
     constructor() { }
 
+    
     ngOnInit() { }
 }
