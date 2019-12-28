@@ -48,7 +48,7 @@
 
                         <td>
                             <button class="btn btn-warning glyphicon glyphicon-pencil"></button>
-                            <button (click)='onDelete()' style="margin-left: 10px;"
+                            <button (click)='onDelete(user.UID)' style="margin-left: 10px;"
                                 class="btn btn-danger glyphicon glyphicon-trash"></button>
                                 <button (click) = 'onBlock(user.UID)' style="margin-left: 10px;"  class="btn btn-success">Block</button>
                                 <button (click) = 'onUnBlock(user.UID)' style="margin-left: 10px;"  class="btn btn-primary">Unblock</button>

@@ -9,6 +9,7 @@ import * as toastr from "toastr";
 
 export class UserListComponent implements OnInit {
     id = 0
+    
     users = []
     constructor(private service: UserService) 
     { 
@@ -73,5 +74,27 @@ export class UserListComponent implements OnInit {
         })
     }
 
+    onDelete(id:number)
+    {
+        
+        
+        this.service.deleteUser(id)
+        .subscribe(response =>
+        {
+            console.log(response['data']);
+                
+            if (response['status'] == 'success')
+            {
+                this.users = response['data']
+                this.getUser()
+                toastr.success('User Deleted')  
+                   
+            }
+            else
+            {    
+                toastr.error('Error')     
+            }
+        })
+    }
     ngOnInit() { }
 }

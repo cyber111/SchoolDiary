@@ -137,4 +137,20 @@ router.post('/Admin/unblock/:id', (request, response) => {
     })
 })
 
+
+//Delete user
+router.post('/Admin/delete/:id', (request, response) => {
+    console.log("exp delete called");
+    
+    const conn = db.connect()
+    const id = request.params.id
+    const statement = `DELETE FROM user WHERE  UID=${id};`
+    conn.query(statement, (error, data) => {
+        conn.end()
+        console.log(error);
+        
+        response.send(utils.createResult(error, data))
+    })
+})
+
 module.exports = router

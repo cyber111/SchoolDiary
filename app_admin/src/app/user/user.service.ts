@@ -7,6 +7,7 @@ export class UserService implements CanActivate{
     
 
     url = ' http://localhost:5000/user'
+    
     constructor(
         private httpClient: HttpClient,
         private router : Router)
@@ -85,5 +86,11 @@ export class UserService implements CanActivate{
     getId(username:string)
     {
         return this.httpClient.get(this.url + '/ID/' + username)
+    }
+
+
+    deleteUser(id: number)
+    {
+        return this.httpClient.post(this.url + "/Admin/delete/" + id, {})
     }
 }
