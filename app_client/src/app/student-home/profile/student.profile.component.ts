@@ -16,14 +16,14 @@ export class StudentProfileComponent implements OnInit {
 
         this.showList()
     }
-    uid  = sessionStorage['uid']
+    sid  = sessionStorage['sid']
     
     
     showList() {
-        console.log(this.uid);
+        console.log(this.sid);
          
         this.service
-            .getstudent(this.uid)
+            .getstudent(this.sid)
             .subscribe(response => {
                 if (response['status'] == 'success') {
                     console.log('hello');

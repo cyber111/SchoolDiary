@@ -27,6 +27,20 @@ router.get('/:id', (request, responce) => {
         responce.send(utils.createResult(error, data))
     })
 })
+
+
+router.post('/bycid', (request, responce) => {
+
+    const {id} = request.body
+    const conn = db.connect()
+    const statement = `SELECT * FROM student WHERE CID = ${id}`
+
+    conn.query(statement, (error, data) => {
+        conn.end()
+        responce.send(utils.createResult(error, data))
+    })
+})
+
 router.post('/', (request, responce) => {
 
     console.log("post student")

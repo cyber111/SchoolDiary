@@ -5,6 +5,7 @@ const parentRouter = require('./parent')
 const facultyRouter = require('./faculty')
 const bodyParser = require('body-parser')
 const adminRouter = require('./admin')
+const classesRouter = require('./classes')
 const noticeRouter = require('./notice')
 const app = express()
 
@@ -22,6 +23,7 @@ app.use('/user', userRouter)
 app.use('/parent', parentRouter)
 app.use('/faculty', facultyRouter)
 app.use('/notice', noticeRouter)
+app.use('/classes', classesRouter)
 
 
 

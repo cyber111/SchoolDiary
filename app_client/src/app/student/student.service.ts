@@ -21,6 +21,11 @@ export class StudentService {
     {
         return this.http.get(this.url +'/'+ id)
     }
+
+    getstudentById(cid : number)
+    {
+        return this.http.post(this.url +'/bycid/', {id : cid})
+    }
     
     addStudent(
         FirstName: string, LastName: string, RollNo: string, 

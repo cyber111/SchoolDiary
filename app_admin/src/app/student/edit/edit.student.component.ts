@@ -46,13 +46,14 @@ export class StudentEditComponent implements OnInit {
                 this.Gender = s.SGENDER
                 this.Board = s.SBOARD   
                 this.Address = s.SADDRESS
-                this.BirthDate  = s.SBIRTHDATE
+                this.BirthDate  = s.SBIRTHDATE 
                 this.Email = s.SEMAIL  
                 this.Class = s.SCLASS
                 this.Division = s.SDIVISION
                 this.DiviosnID  = s.DID
                 this.ClassID  = s.CID
                 this.USerID  = s.UID
+                this.BirthDate.toLocaleDateString
             }
         })
         

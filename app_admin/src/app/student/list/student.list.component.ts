@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
 export class StudentListComponent implements OnInit {
 
     students : any[]
+    sBirthDate 
     constructor(private service : StudentService) 
     { 
         
@@ -26,8 +27,9 @@ export class StudentListComponent implements OnInit {
             {
                 console.log('hello');
                 this.students = response['data']
-                console.log(this.students);
-                    
+                // this.sBirthDate = new Date()
+              
+                console.log(typeof(this.sBirthDate) + "  : " + this.sBirthDate);       
             }
             else
             {

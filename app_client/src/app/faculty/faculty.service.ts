@@ -8,6 +8,7 @@ export class FacultyService {
 
     url = 'http://localhost:5000/faculty'
     url1 = 'http://localhost:5000/notice'
+    url2 = 'http://localhost:5000/classes'
 
     getTeachers() {
         return this.httpClient.get(this.url)
@@ -70,6 +71,11 @@ export class FacultyService {
         }
         console.log("........." + body)
         return this.httpClient.put(this.url1 + '/editnotice',body)
+    }
+
+    getClasses()
+    {
+        return this.httpClient.get(this.url2)
     }
 }
 
