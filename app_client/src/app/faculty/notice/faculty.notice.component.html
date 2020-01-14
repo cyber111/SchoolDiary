@@ -8,106 +8,107 @@
 
 <body>
   
-
-  <div class="container col-md-2">
-    <div class="list-group">
-      <button type="button" class="list-group-item" (click)="onNewNotice()">New Notice</button>
-      <button type="button" class="list-group-item" (click)="onEditNotice()">Edit Notice</button>
-      <button type="button" class="list-group-item" (click)="onDeleteNotice()">Delete Notice</button>
+<div class="container-fluid">
+    <div class="container col-md-2">
+        <div class="list-group">
+          <button type="button" class="list-group-item" (click)="onNewNotice()">New Notice</button>
+          <button type="button" class="list-group-item" (click)="onEditNotice()">Edit Notice</button>
+          <button type="button" class="list-group-item" (click)="onDeleteNotice()">Delete Notice</button>
+        </div>
     </div>
-  </div>
-
-
-  <!-- New Notice -->
-  <div *ngIf="newFlag" class="container container-fluid border-primary col-md-8 panel panel-default">
-
-
-    <div class="form-group">
-      <label for="comment">Notice:</label>
-      <textarea [(ngModel)]="text" class="form-control" rows="10" id="comment"></textarea>
-      <button (click)='setNotices()' class="btn btn-primary" style="margin-top: 10px;">Add Notice</button>
-    </div>
-
-
-
-  </div>
-
-   <!-- edit specific Notice -->
-   <div *ngIf="editFlag1" class="container container-fluid border-primary col-md-8 panel panel-default">
     
-
-
-    <div class="form-group">
-      <label for="comment">Notice:</label>
-      <textarea [(ngModel)]="text" class="form-control" rows="10" id="comment"></textarea>
-      <button (click)='editNotice()' class="btn btn-primary" style="margin-top: 10px;">Edit Notice</button>
+    
+    <div class="container-fluid">
+           <!-- New Notice -->
+           <div *ngIf="newFlag" class="container container-fluid border-primary col-md-8 panel panel-default">
+    
+    
+              <div class="form-group">
+                <label for="comment">Notice:</label>
+                <textarea [(ngModel)]="text" class="form-control" rows="10" id="comment"></textarea>
+                <button (click)='setNotices()' class="btn btn-primary" style="margin-top: 10px;">Add Notice</button>
+              </div>
+          
+          
+          
+            </div>
+          
+             <!-- edit specific Notice -->
+             <div *ngIf="editFlag1" class="container container-fluid border-primary col-md-8 panel panel-default">
+              
+          
+          
+              <div class="form-group">
+                <label for="comment">Notice:</label>
+                <textarea [(ngModel)]="text" class="form-control" rows="10" id="comment"></textarea>
+                <button (click)='editNotice()' class="btn btn-primary" style="margin-top: 10px;">Edit Notice</button>
+              </div>
+          
+          
+          
+            </div>
+          
+            <!-- Edit Notices-->
+            <div *ngIf="editFlag" class="container container-fluid border-primary col-md-8"
+              style="height:8cm ;">
+          
+              <div class="form-group">
+                <label for="comment">Select Notice:</label>
+                <!-- <textarea class="form-control" rows="10" id="comment"></textarea> -->
+                <table class="table-bordered table-striped">
+                  <thead>
+                    <th>Notice</th>
+                    <th>Text</th>
+                    <th>Action</th>
+                  </thead>
+          
+                  <tbody>
+                    <tr *ngFor="let notice of notices">
+                      <td>{{notice.id}}</td>
+                      <td>{{notice.notice_text}}</td>
+                      <td>
+                          <button (click)="onEdit(notice.notice_text, notice.id)" class="btn btn-default glyphicon glyphicon-pencil" style="margin-top: 10px;"></button>
+                          <button class="btn btn-default glyphicon glyphicon-trash" style="margin-top: 10px;"></button>
+                      </td>
+          
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- <button class="btn btn-primary glyphicon glyphicon-pencil" style="margin-top: 10px;"></button> -->
+              </div>
+          
+            </div>
+          
+            <!-- Delete Notice -->
+            <div *ngIf="deleteFlag" class="container container-fluid border-primary col-md-8"
+              style="height:8cm ;">
+              <div class="form-group container-fluid">
+                <label for="comment">Select Notice:</label>
+                <table class="table-bordered table-striped">
+                    <thead>
+                      <th>Notice</th>
+                      <th>Text</th>
+                      <th>Action</th>
+                    </thead>
+            
+                    <tbody>
+                      <tr *ngFor="let notice of notices">
+                        <td>{{notice.id}}</td>
+                        <td>{{notice.notice_text}}</td>
+                        <td>
+                            <button class="btn btn-primary glyphicon glyphicon-pencil" style="margin-top: 10px;"></button>
+                        </td>
+            
+                      </tr>
+                    </tbody>
+                  </table>
+                
+              </div>    
+            </div>
     </div>
-
-
-
-  </div>
-
-  <!-- Edit Notices-->
-  <div *ngIf="editFlag" class="container container-fluid border-primary col-md-8"
-    style="height:8cm ;">
-
-    <div class="form-group">
-      <label for="comment">Select Notice:</label>
-      <!-- <textarea class="form-control" rows="10" id="comment"></textarea> -->
-      <table class="table-bordered table-striped">
-        <thead>
-          <th>Notice</th>
-          <th>Text</th>
-          <th>Action</th>
-        </thead>
-
-        <tbody>
-          <tr *ngFor="let notice of notices">
-            <td>{{notice.id}}</td>
-            <td>{{notice.notice_text}}</td>
-            <td>
-                <button (click)="onEdit(notice.notice_text, notice.id)" class="btn btn-default glyphicon glyphicon-pencil" style="margin-top: 10px;"></button>
-                <button class="btn btn-default glyphicon glyphicon-trash" style="margin-top: 10px;"></button>
-            </td>
-
-          </tr>
-        </tbody>
-      </table>
-      <!-- <button class="btn btn-primary glyphicon glyphicon-pencil" style="margin-top: 10px;"></button> -->
-    </div>
-
-  </div>
-
-  <!-- Delete Notice -->
-  <div *ngIf="deleteFlag" class="container container-fluid border-primary col-md-8"
-    style="height:8cm ;">
-    <div class="form-group container-fluid">
-      <label for="comment">Select Notice:</label>
-      <table class="table-bordered table-striped">
-          <thead>
-            <th>Notice</th>
-            <th>Text</th>
-            <th>Action</th>
-          </thead>
-  
-          <tbody>
-            <tr *ngFor="let notice of notices">
-              <td>{{notice.id}}</td>
-              <td>{{notice.notice_text}}</td>
-              <td>
-                  <button class="btn btn-primary glyphicon glyphicon-pencil" style="margin-top: 10px;"></button>
-              </td>
-  
-            </tr>
-          </tbody>
-        </table>
-      
-    </div>
-
-
-
-  </div>
-
+    
+</div>
+ 
 </body>
 
 </html>

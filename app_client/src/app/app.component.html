@@ -3,108 +3,147 @@
 
 <head>
     <title>School Diary</title>
+    <!-- <link rel="stylesheet" href="./app.component.css"> -->
 </head>
 
 <body>
+    <div class="container">
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" style="font-weight: bold; font-size: 15dp;" [routerLink]="['/home']"
-                    routerLinkActive="router-link-active" href="#">SCHOOL DIARY</a>
-            </div>
-            <div class="collapse navbar-collapse">
+        <!-- header -->
+        <section class="">
+            <nav class="navbar navbar-inverse" style="padding: 5px; margin-top: 5px;">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" style="font-weight: bold; font-size: 15dp;" [routerLink]="['/home']"
+                            routerLinkActive="router-link-active" href="#">SCHOOL DIARY</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
 
-                <div *ngIf="toRender()">
+                        <div *ngIf="toRender()">
 
 
-                    <div *ngIf="isStudent()">
-                        <!-- STUDENT -->
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/students-profile">Profile</a></li>
-                        </ul>   
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/students-dashboard">Dashboard</a></li>
+                            <div *ngIf="isStudent()">
+                                <!-- STUDENT -->
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/students-profile">Profile</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/students-dashboard">Dashboard</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/students-test">Tests</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/students-subject">Subjects</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/students-feedback">Feedback</a></li>
+                                </ul>
+                            </div>
+
+
+
+                            <div *ngIf="isParent()">
+                                <!-- PARENT -->
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/students-profile">Profile</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/home">Dashboard</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/home">Show Grades of ward</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/home">Subjects of ward</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/home">Feedbacks</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/home">Notices</a></li>
+                                </ul>
+                            </div>
+
+
+
+
+                            <div *ngIf='isFaculty()'>
+                                <!-- FACULTY -->
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/faculty-profile">Profile</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/faculty-dashboard">Dashboard</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/faculty-test">Manage Tests</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/home">Manage Schedule</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/home">Subjects</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/faculty-notice">Manage Notice</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+                                    <li> <a routerLink="/home">Setting</a></li>
+                                </ul>
+                            </div>
+
+
+                        </div>
+
+                        <ul *ngIf="!toRender()" class="nav navbar-nav pull-right">
+                            <li> <a (click)='onLogin()'>Login</a></li>
                         </ul>
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/students-test">Tests</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/students-subject">Subjects</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/students-feedback">Feedback</a></li>
+                        <ul *ngIf="toRender()" class="nav navbar-nav pull-right">
+                            <li> <a (click)='onLogout()'>Logout</a></li>
                         </ul>
                     </div>
+                </div>
+            </nav>
+        </section>
 
+        <!-- advertise -->
+        <section>
+            <router-outlet></router-outlet>
+        </section>
 
+        <!-- footer -->
+        <section class="about-us text-bottom" style="margin-top: 10px;">
+            <div class="row">
 
-                    <div *ngIf="isParent()">
-                        <!-- PARENT -->
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/students-profile">Profile</a></li>
-                        </ul>   
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/home">Dashboard</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/home">Show Grades of ward</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/home">Subjects of ward</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/home">Feedbacks</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/home">Notices</a></li>
-                        </ul>
-                    </div>
-
-
-
-                    
-                    <div *ngIf='isFaculty()'>
-                        <!-- FACULTY -->
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/faculty-profile">Profile</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/faculty-dashboard">Dashboard</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/faculty-test">Manage Tests</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/home">Manage Schedule</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/home">Subjects</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/faculty-notice">Manage Notice</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav">
-                            <li> <a routerLink="/home">Setting</a></li>
-                        </ul>
-                    </div>
-
-
+                <div class="col-md-3">
+                    <strong>Get to Know Us</strong>
+                    <ul class="about-us-links">
+                        <li><a href=""> About Us</a></li>
+                        <li><a href=""> Careers</a></li>
+                    </ul>
                 </div>
 
-                <ul *ngIf="!toRender()" class="nav navbar-nav pull-right">
-                    <li> <a (click)='onLogin()'>Login</a></li>
-                </ul>
-                <ul *ngIf="toRender()" class="nav navbar-nav pull-right">
-                    <li> <a (click)='onLogout()'>Logout</a></li>
-                </ul>
+                <div class="col-md-3">
+                    <strong>Connect with Us</strong>
+                    <ul class="about-us-links">
+                        <li><a href="">Facebook</a></li>
+                        <li><a href="">Twitter</a></li>
+                        <li><a href="">Instagram</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="col-md-3">
+                    <strong>Let Us Help You</strong>
+                    <ul class="about-us-links">
+                        <li><a href="">Your Account</a></li>
+                        <li><a href="">Returns Centre</a></li>
+                    </ul>
+                </div>
+
             </div>
-        </div>
-    </nav>
-    <router-outlet></router-outlet>
-
-
+        </section>
+    </div>
 </body>
-
-
 </html>
