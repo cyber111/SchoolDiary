@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Question</title>a
+</head>
+
+<body>
+  
+
+<br><br>
+<div class="panel panel-default" *ngFor="let item of tests" >
+    <p>
+        <span><strong>Question </strong> : {{item.question}}</span><br>
+        <span><strong>Answer</strong></span><br>
+        <textarea name="" id="" cols="30" rows="5" [(ngModel)]="answer"></textarea>
+        <br>
+        <button class="btn btn-success" (click) = "onSubmit(item.test_id,item.id)" >Submit</button>
+      </p>
+</div>
+
+</body>
+
+</html>

@@ -39,4 +39,9 @@ export class ParentService {
     {
         return this.httpClient.delete(this.url + '/' + id)
     }
+
+    getParentById(id: number)
+    {
+        return this.httpClient.get(this.url + '/' + id)
+    }   
 }

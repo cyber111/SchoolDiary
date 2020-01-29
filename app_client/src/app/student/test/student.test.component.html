@@ -1,1 +1,32 @@
-<h2>Tests Will Display here</h2>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Schedule Tests</title>a
+</head>
+
+<body>
+  
+
+<br><br>
+<div class="col-md-2">
+</div>
+<div class="col-md-8">
+    <div class="panel panel-success" style="padding: 10px;" *ngFor="let item of tests" >
+        <p>
+            <span><strong>Test Name</strong> : {{item.test_name}}</span><br> 
+            <button (click) = "onAttempt(item.id)"  class="btn btn-success pull-right">Attempt Test</button>
+            <span><strong>Subject</strong> : {{item.subject}}</span><br>
+            <span><strong>Date</strong> : {{item.date}}</span><br>
+            <span><strong>Class</strong> : {{item.class_name}}</span><br>
+        </p>
+    </div>
+  </div>
+
+
+
+
+</body>
+
+</html>

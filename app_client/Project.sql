@@ -488,3 +488,68 @@ CREATE TABLE notice
     (notice_text)
   VALUES("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It")
   
+
+
+  CREATE TABLE schedules
+  (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    date date,
+    details VARCHAR(500),
+    day VARCHAR(15)
+  )
+
+
+   CREATE TABLE tests
+  (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    test_name VARCHAR(500),
+    class_name VARCHAR(52),
+    class_id INT,
+    date date,
+    subject VARCHAR(15),
+    FOREIGN KEY (class_id) REFERENCES classes(CID)
+  );
+
+
+  CREATE TABLE questions (
+    id int PRIMARY KEY AUTO_INCREMENT,
+    test_id int,
+    question varchar(500),
+    answer varchar(500),
+    FOREIGN KEY (test_id) REFERENCES tests(id)
+);
+
+ CREATE TABLE answers (
+    id int PRIMARY KEY AUTO_INCREMENT,
+    test_id int,
+    q_id varchar(500),
+    answer varchar(500),
+    sid int,
+    FOREIGN KEY (sid) REFERENCES student(S_ID),
+    FOREIGN KEY (test_id) REFERENCES tests(id),
+    FOREIGN KEY (q_id) REFERENCES questions(id)
+);
+
+
+
+
+
+
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+);
+
+
+
+CREATE TABLE remark 
+(
+  id int NOT NULL AUTO_INCREMENT,
+  remark VARCHAR(500),
+  sid int,
+  PRIMARY KEY (id),
+  FOREIGN KEY(sid) REFERENCES student(S_ID)
+);

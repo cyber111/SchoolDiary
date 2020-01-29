@@ -26,6 +26,18 @@ router.get('/:uid', (request, responce) => {
         responce.send(utils.createResult(error, data))  
     })
 })
+
+router.get('/byid/:FID', (request, responce) => {
+    console.log("asdasdasdasdasdx")
+    const {FID} = request.params
+    const conn = db.connect()
+    const statement = `SELECT * FROM faculty WHERE FID = ${FID}`
+
+    conn.query(statement, (error, data) => {
+        conn.end()
+        responce.send(utils.createResult(error, data))  
+    })
+})
 router.post('/user', (request, response) => {
     console.log("hello");
     
@@ -36,6 +48,19 @@ router.post('/user', (request, response) => {
         conn.end()
 
         response.send(utils.createResult(error, data))
+    })
+})
+
+router.post('/byuid', (request, response) => {
+    console.log("hello");
+    const {id} = request.body
+    const conn = db.connect()
+    const statement = `select * from faculty where UID= '${id}'`
+
+    conn.query(statement, (error, data) => {
+        conn.end()
+
+        response.send(utils.createResult(error, data[0]))
     })
 })
 

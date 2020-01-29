@@ -31,6 +31,15 @@ import { StudentFeedbackComponent } from './student/feedback/student.feedback.co
 import { StudentDashboardComponent } from './student/dashboard/student.dashboard.component';
 import { FacultySubjectComponent } from "./faculty/subject/faculty.subject.component";
 import { FacultyClassesComponent } from "./faculty/classes/faculty.classes.component";
+import { FacultySchduleComponent } from "./faculty/schedule/faculty.schedule.component";
+import { FacultyNewSchduleComponent } from "./faculty/schedule/newSchedule/faculty.newSchedule.component";
+import { FacultyNewTestComponent } from "./faculty/test/newTest/faculty.newTest.component";
+import { FacultyQuestionComponent } from './faculty/test/question/list/faculty.question.component';
+import { FacultyNewQuestionComponent } from './faculty/test/question/newQuestion/faculty.newQuestion.component';
+import { StudentAttemptComponent } from './student/test/attempt/student.attempt.component';
+import { StudentRemarkComponent } from './student/list/remark/student.remark.component';
+import { StudentNewRemarkComponent } from "./student/list/remark/newRemark/student.NewRemark.component";
+
 
 const route : Route[]=
 [
@@ -42,6 +51,11 @@ const route : Route[]=
   {path: 'students-test', component:StudentTestComponent},
   {path: 'students-feedback', component:StudentFeedbackComponent},
   {path: 'students-dashboard', component:StudentDashboardComponent},
+  {path: 'students-attempt', component:StudentAttemptComponent},
+  {path: 'students-remark', component:StudentRemarkComponent},
+  {path: 'students-newremark', component:StudentNewRemarkComponent},
+  
+  
   
   
   {path : 'user-register', component: UserRegisterComponent},
@@ -62,11 +76,13 @@ const route : Route[]=
   {path: 'faculty-test', component:FacultyTestComponent, canActivate:[UserService]},
   // {path: 'faculty-dashboard', component:FacultyDashboardComponent, canActivate:[UserService]},
   {path: 'faculty-subject', component:FacultySubjectComponent, canActivate:[UserService]},
-  {path: 'faculty-classes', component:FacultyClassesComponent, canActivate:[UserService]}
-  
+  {path: 'faculty-classes', component:FacultyClassesComponent, canActivate:[UserService]},
+  {path: 'faculty-schedule', component:FacultySchduleComponent, canActivate:[UserService]},
+  {path: 'faculty-newschedule', component:FacultyNewSchduleComponent, canActivate:[UserService]},
+  {path: 'faculty-newtest', component:FacultyNewTestComponent, canActivate:[UserService]},
+  {path: 'faculty-question', component:FacultyQuestionComponent, canActivate:[UserService]},
+  {path: 'faculty-newquestion', component:FacultyNewQuestionComponent, canActivate:[UserService]}
 ]
-    
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,6 +98,10 @@ const route : Route[]=
     StudentTestComponent,
     StudentFeedbackComponent,
     StudentDashboardComponent,
+    StudentAttemptComponent,
+    StudentRemarkComponent,
+    StudentNewRemarkComponent,
+    
     
 
     
@@ -100,6 +120,11 @@ const route : Route[]=
     // FacultyDashboardComponent,
     FacultySubjectComponent,
     FacultyClassesComponent,
+    FacultySchduleComponent,
+    FacultyNewSchduleComponent,
+    FacultyNewTestComponent,
+    FacultyQuestionComponent,
+    FacultyNewQuestionComponent,
 
     ClientHomeComponent
 

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Remarks</title>a
+</head>
+
+<body>
+  
+<button class="btn btn-primary pull-right" [routerLink]="['/students-newremark']" style="margin-bottom: 10px;">Add Remark</button>
+<br><br>
+<div class="panel panel-default" *ngFor="let item of remarks" >
+    <p>
+        <span><strong>Remark </strong> : {{item.remark}}</span><br>
+        <span><strong>Date</strong> : {{item.date}}</span><br>
+    </p>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Schedule</title>a
+</head>
+
+<body>
+  
+<button class="btn btn-primary pull-right" [routerLink]="['/faculty-newschedule']" style="margin-bottom: 10px;">Add New Schedule</button>
+<br><br>
+<div class="panel panel-default" *ngFor="let item of schedule" >
+    <p>
+        <span><strong>Date</strong> : {{item.date}}</span><br>
+        <span><strong>Day</strong> : {{item.day}}</span><br>
+        <span><strong>Details</strong> : {{item.details}}</span><br>
+    </p>
+</div>
+
+</body>
+
+</html>

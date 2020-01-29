@@ -12,15 +12,30 @@ import { log } from 'util';
 
 export class StudentProfileComponent implements OnInit {
     students: any[]
+    sid
     constructor(private router: Router, private service: StudentService) {
+
+        
+  
+        if(sessionStorage['role'] == 'faculty')
+        {
+            this.sid = sessionStorage['sid']
+        }
+        else if(sessionStorage['role'] == 'student')
+        {
+            this.sid = sessionStorage['uid']
+            console.log("++++" + this.sid);  
+        }
 
         this.showList()
     }
-    sid  = sessionStorage['sid']
+
     
+    
+  
     
     showList() {
-        console.log(this.sid);
+        console.log( "---" + this.sid);
          
         this.service
             .getstudent(this.sid)
@@ -32,6 +47,7 @@ export class StudentProfileComponent implements OnInit {
 
                 }
                 else {
+                    console.log("Student-Profile-Error");
                     toastr.error('error error error')
                 }
             })

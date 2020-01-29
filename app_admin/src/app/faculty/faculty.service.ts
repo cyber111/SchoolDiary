@@ -40,6 +40,11 @@ export class FacultyService {
         return this.httpClient.delete(this.url + '/' + id)
     }
 
+    getFacultyById(id: number)
+    {
+        return this.httpClient.get(this.url + '/byid/' + id)
+    }
+
 }
 
 

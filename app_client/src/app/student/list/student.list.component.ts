@@ -13,7 +13,7 @@ export class StudentListComponent implements OnInit {
 
     students : any[]
     CID = sessionStorage['cid']
-    sid 
+    sid     
     
     constructor(private router : Router, private service : StudentService) 
     { 
@@ -43,7 +43,20 @@ export class StudentListComponent implements OnInit {
             }
 
         })
-        sessionStorage['sid'] = this.sid
+    }
+
+
+    oninfo(sid:number)
+    {
+        sessionStorage['sid'] = sid
+        this.router.navigate(['/students-profile/'])
+    }
+
+    onRemark(sid : number)
+    {
+        sessionStorage['sid'] = sid
+        this.router.navigate(['/students-remark'])
+        
     }
 
 

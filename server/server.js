@@ -7,6 +7,12 @@ const bodyParser = require('body-parser')
 const adminRouter = require('./admin')
 const classesRouter = require('./classes')
 const noticeRouter = require('./notice')
+const scheduleRouter = require('./schedule')
+const testRouter = require('./test')
+const questionRouter = require('./question')
+const remarkRouter = require('./remark')
+const answerRouter = require('./answers')
+
 const app = express()
 
 // for CORS
@@ -24,6 +30,11 @@ app.use('/parent', parentRouter)
 app.use('/faculty', facultyRouter)
 app.use('/notice', noticeRouter)
 app.use('/classes', classesRouter)
+app.use('/schedule', scheduleRouter)
+app.use('/test', testRouter)
+app.use('/question', questionRouter)
+app.use('/remark', remarkRouter)
+app.use('/answer', answerRouter)
 
 
 

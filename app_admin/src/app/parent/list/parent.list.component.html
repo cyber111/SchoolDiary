@@ -9,26 +9,6 @@
             <h1 style="text-align:center;font-weight: bold;" >ADMIN</h1>
             <hr>
         <div class="container">
-            <!-- <nav class="navbar navbar-inverse">
-                        <div class="container-fluid">
-                            <div class="collapse navbar-collapse">
-                                <ul class="nav navbar-nav">
-                                    <li> <a routerLink="/students-list">Students</a></li>
-                                </ul>
-                                <ul class="nav navbar-nav">
-                                    <li> <a routerLink="/parent-list">Parent</a></li>
-                                </ul>
-                                <ul class="nav navbar-nav">
-                                    <li> <a routerLink="/faculty-list">Faculty</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </nav> -->
-            <!-- <h1 style="text-align: center; ">Parents</h1>
-            <li> <a routerLink="/students-list">Students</a></li>
-            <li> <a routerLink="/parent-list">Parent</a></li>
-            <li> <a routerLink="/faculty-list">Faculty</a></li>
-            <li> <a routerLink="/user-list">User</a></li> -->
             <h1 style="text-align: center; ">Parents</h1>
             <button routerLink='/parent-add' style="margin-bottom: 10px"
                 class="btn btn-primary pull-right AddButton">Add
@@ -57,7 +37,8 @@
                         <td>{{parent.PADDRESS}}</td>
                         <td>{{parent.PRELATION}} </td>
                         <td>
-                            <button class="btn btn-warning glyphicon glyphicon-pencil"></button>
+                            <a routerLink="/parent-edit/{{parent.PID}}"
+                            class="btn btn-warning  glyphicon glyphicon-pencil"></a>
                             <button (click)='onDelete(parent.PID)' style="margin-left: 10px;"
                                 class="btn btn-danger glyphicon glyphicon-trash"></button>
                         </td>

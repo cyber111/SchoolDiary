@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Question</title>a
+</head>
+
+<body>
+  
+<button class="btn btn-primary pull-right" [routerLink]="['/faculty-newquestion']" style="margin-bottom: 10px;">Add Question</button>
+<br><br>
+<div class="panel panel-default" *ngFor="let item of tests" >
+    <p>
+        <span><strong>Question </strong> : {{item.question}}</span><br>
+        <span><strong>Answer</strong> : {{item.answer}}</span><br>
+    </p>
+</div>
+
+</body>
+
+</html>

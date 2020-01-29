@@ -57,15 +57,15 @@ export class StudentAddComponent implements OnInit {
 
     }
     addStudent(
-        FirstName: string, LastName: string,
-        RollNo: string, ParentID: string,
-        Gender: string, Board: string,
-        Address: string, BirthDate: Date,
-        Email: string, Class: string,
-        Division: string, DiviosnID:
-            string, ClassID: string,
-        USerID: string, UserName:
-            string, Password: string) {
+                FirstName: string, LastName: string,
+                RollNo: string, ParentID: string,
+                Gender: string, Board: string,
+                Address: string, BirthDate: Date,
+                Email: string, Class: string,
+                Division: string, DiviosnID:
+                string, ClassID: string,
+                USerID: string, UserName:
+                string, Password: string) {
 
         this.userService.registerUser   (UserName, Password,Email, "student").
             subscribe(response => {

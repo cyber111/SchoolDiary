@@ -1,0 +1,69 @@
+<div class="form container ">
+    <h1>Edit Faculties</h1>
+    <div class="rows">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>First Name</label>
+                <input [(ngModel)]='FFIRSTNAME' type="text" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Last Name</label>
+                <input [(ngModel)]='FLASTNAME' type="text" class="form-control">
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="rows">
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Mobile</label>
+                <input [(ngModel)]='FMOBILE' type="text" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Address</label>
+                <input [(ngModel)]='FADDRESS' type="text" class="form-control">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="rows">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Subject spl.</label>
+                <input [(ngModel)]='FSUBJECTSPECILITY' type="text" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-4">
+                <div class="form-group">
+                    <label>Gender</label>
+                    <select [(ngModel)]="FGENDER" class="form-control">
+                        <option value="Male" >Male</option>
+                        <option value="Female" >Female</option>
+                    </select>
+                </div>
+            </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="rows">
+            <div>
+                <button (click)='onUpdate()'  routerLinkActive="router-link-active"  class="btn btn-success">Update</button>
+                <button style="margin-left: 10px;" class="btn btn-danger">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+</div>

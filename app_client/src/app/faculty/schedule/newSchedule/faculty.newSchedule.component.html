@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Schedule</title>
+</head>
+
+<body>
+  <div class="col-md-4"></div>
+  <div class="container col-md-4">
+
+    <h2 style="text-align: center;">Schedule</h2>
+    <div class="row">
+      <div class="form-group">
+        <label>Date</label>
+        <input [(ngModel)]="date" class="form-control" type="date" name="" id="">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <label>Details</label>
+        <input [(ngModel)]="details" class="form-control" type="text">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <label>Day</label>
+        <select name="weekday" class="form-control" [(ngModel)]="day">
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+            </select>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="form-group">
+          <button class="btn btn-success" (click) = "onAddSchedule()">Add Schedule</button>
+      </div>
+    </div>
+
+
+  </div>
+
+</body>
+
+</html>

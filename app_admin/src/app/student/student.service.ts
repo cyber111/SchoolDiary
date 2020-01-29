@@ -62,7 +62,7 @@ export class StudentService {
     updateStudent(S_ID:number,
         FirstName: string, LastName: string, RollNo: string, 
         ParentID: string, Gender: string, 
-        Board: string, Address: string, BirthDate:Date, 
+        Board: string, Address: string, BirthDate:string, 
         Email: string, Class: string, Division: string, 
         DiviosnID: string, ClassID: string, USerID: string
         )
@@ -91,21 +91,6 @@ export class StudentService {
     }
 }
 
-// STUDENT
-// S_ID
-// SFIRSTNAME
-// SLASTNAME
-// SROLLNO
-// PID 
-// SGENDER
-// SBOARD
-// SADDRESS
-// SBIRTHDATE
-// SEMAIL
-// SCLASS
-// SDIVISION
-// DID
-// CID
-// UID
+
 
 

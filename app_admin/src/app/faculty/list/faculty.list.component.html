@@ -43,7 +43,7 @@
                     <td>{{faculty.FSUBJECTSPECILITY}}</td>
                     <td>{{faculty.FMOBILE}}</td>
                     <td>
-                        <button class="btn btn-warning glyphicon glyphicon-pencil"></button>
+                        <button routerLink = '/faculty-edit/{{faculty.FID}}'  class="btn btn-warning glyphicon glyphicon-pencil"></button>
                         <button (click)='onDelete(faculty.FID)' style="margin-left: 10px;"
                             class="btn btn-danger glyphicon glyphicon-trash"></button>
                     </td>

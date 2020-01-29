@@ -11,6 +11,8 @@ import { Router } from "@angular/router";
 })
 
 export class FacultyAddComponent implements OnInit {
+
+    FID: number
     CID: number
     FFIRSTNAME: string
     FLASTNAME: string

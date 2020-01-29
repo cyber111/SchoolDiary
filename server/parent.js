@@ -81,6 +81,38 @@ router.delete('/:id', (request, responce) => {
     })
 })
 
+router.post('/byemail', (request, responce) => {
+    const {email} = request.body;
+    const conn = db.connect()
+    const statement = `select * FROM parent WHERE PEMAIL = '${email}'`
+    conn.query(statement, (error, data) => {
+        conn.end()
+        responce.send(utils.createResult(error, data[0]))
+    })
+})
+
+router.get('/:id', (request, responce) => {
+
+    const id = request.params.id;
+    const conn = db.connect()
+    const statement = `select * FROM parent WHERE PID = ${id}`
+    conn.query(statement, (error, data) => {
+        conn.end()
+        responce.send(utils.createResult(error, data))
+    })
+})
+
+
+router.post('/bypid', (request, responce) => {
+
+    const id = request.body.id;
+    const conn = db.connect()
+    const statement = `select * FROM parent WHERE PID = ${id}`
+    conn.query(statement, (error, data) => {
+        conn.end()
+        responce.send(utils.createResult(error, data[0]))
+    })
+})
 
 
 module.exports = router

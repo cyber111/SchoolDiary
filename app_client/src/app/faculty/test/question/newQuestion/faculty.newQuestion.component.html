@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Schedule</title>
+</head>
+
+<body>
+  <div class="col-md-3"></div>
+  <div class="container col-md-6">
+
+    <h2 style="text-align: center;">New Question</h2>
+    <div class="row">
+      <div class="form-group">
+        <label>Question</label>
+        <textarea [(ngModel)]="question" class="form-control" name="" id="" cols="30" rows="5"></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <label>Answer</label>
+        <textarea [(ngModel)]="answer" class="form-control" name="" id="" cols="30" rows="5"></textarea>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="form-group">
+          <button class="btn btn-success" (click) = onAddQuestion()>Next</button>
+      </div>
+    </div>
+
+
+  </div>
+
+</body>
+
+</html>

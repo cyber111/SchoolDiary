@@ -65,6 +65,8 @@ router.get('/:ID', (request, response) => {
 })
 
 router.post('/login', (request, response) => {
+    console.log("User Login");
+    
     const conn = db.connect()
     const { password, username } = request.body
 

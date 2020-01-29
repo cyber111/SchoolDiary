@@ -35,12 +35,13 @@
 
                     <td>
                         <!-- <button (click) = '' class="btn btn-warning glyphicon glyphicon-pencil"></button> -->
-                        <a routerLink="/students-profile"
+                        <a (click)="oninfo(student.S_ID)"
                             class="btn btn-warning  glyphicon glyphicon-info-sign"></a>
-                            <button style="margin-left: 5px;" class="btn btn-success">Mark Attedence</button>
+                        <a (click)="onRemark(student.S_ID)" style="margin-left: 5px;" class="btn btn-primary">Remark</a>    
+                            <button style="margin-left: 5px;" class="btn btn-success" >Mark Attedence</button>
 
                     </td>
-                    <input type="hidden" [(ngModel)]="sid" value=student.S_ID>
+                    
                 </tr>
             </tbody>
         </table>
