@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_parentProfile"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_ward"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Ward Information" />
+        <item
+            android:id="@+id/nav_remark"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Remark From Faculty" />
+
+    </group>
+
+    <item android:title="More">
+        <menu>
+            <link
+                android:id="@+id/nav_website"
+                android:icon="@drawable/link_ic"
+                android:title="Visit Website"
+
+                />
+        </menu>
+    </item>
+
+</menu>
